@@ -1,0 +1,34 @@
+ok - fm-consult: script parses and help owns commands, transport, and authority
+ok - fm-consult: scaffold writes the complete outward question contract
+ok - fm-consult: scaffold refuses to clobber an existing brief
+ok - fm-consult: receive refuses missing and empty reports
+ok - fm-consult: path-traversing consult ids are refused before writes
+ok - fm-consult: receive emits the fixed untrusted-input banner and structural summary
+ok - fm-consult: receive neither emits nor acts on report content
+ok - fm-consult: status reports awaiting and received consultations
+ok - fm-consult: status lists every entry, refuses tampered ones, and exits nonzero
+ok - fm-consult: status refuses an invalid-id directory without dropping the rest
+ok - fm-consult: single-id status still dies loudly on a tampered or invalid query
+ok - fm-consult: status refuses a symlinked consultation directory without dropping the rest
+ok - fm-consult: status refuses a hidden consultation entry without dropping the rest
+ok - fm-consult: status reports no consultations for an empty data directory
+ok - fm-consult: a planted entry name cannot forge an extra status line
+ok - fm-consult: status refuses a symlinked directory even with no consult files behind it
+ok - fm-consult: a symlinked data root is resolved rather than refused
+ok - fm-consult: status ignores data entries that cannot hold consult artifacts
+ok - fm-consult: status reports only consultations in a seeded firstmate home
+ok - fm-consult: an unreadable data directory is refused, not reported as empty
+ok - fm-consult: an unreadable consultation directory is refused by every command
+ok - fm-consult: an absent consult id is refused while an empty consultation still reports
+ok - fm-consult: a searchable consultation is reported and only non-searchable is refused
+ok - fm-consult: receive refuses an unreadable report while status still classifies it
+ok - fm-consult: both spellings of a symlinked data override resolve to the same destination
+ok - fm-consult: a searchable data root refuses only the enumerating listing
+ok - fm-consult: scaffold refuses an unwritable consultation directory without leaking a shell error
+ok - fm-consult: scaffold bootstraps a missing data directory under a valid home
+ok - fm-consult: status <id> and the listing agree on what is a consultation
+ok - fm-consult: scaffold refuses an unwritable data root without leaking a shell error
+ok - fm-consult: a data root whose symlink target is missing is refused by every command
+ok - fm-consult: scaffold reports the underlying cause of a creation failure on one line
+ok - fm-consult: a safe directory holding no consultation is neither listed nor refused
+ok - fm-consult: FM_DATA_OVERRIDE redirects scaffold, receive, and status

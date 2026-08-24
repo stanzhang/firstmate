@@ -1,0 +1,74 @@
+==============================================================
+ fm-consult.sh — refusals for a broken or unusable data root
+==============================================================
+
+--- A. data/ is a symlink to a volume that has gone away ---
+(while the volume is mounted, the real consultation is visible:)
+
+$ fm-consult.sh status
+alpha: report received
+[exit 0]
+
+(now the volume is moved away — a dangling data symlink:)
+
+$ fm-consult.sh status
+fm-consult: data directory is a symlink whose target is missing; restore or repoint it: /private/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-consult-hard.6RP96w/a/data
+[exit 2]
+
+$ fm-consult.sh status alpha
+fm-consult: data directory is a symlink whose target is missing; restore or repoint it: /private/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-consult-hard.6RP96w/a/data
+[exit 2]
+
+$ fm-consult.sh scaffold beta
+fm-consult: data directory is a symlink whose target is missing; restore or repoint it: /private/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-consult-hard.6RP96w/a/data
+[exit 2]
+
+$ fm-consult.sh receive alpha
+fm-consult: data directory is a symlink whose target is missing; restore or repoint it: /private/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-consult-hard.6RP96w/a/data
+[exit 2]
+
+--- B. data/ exists but is not writable (mode 0500) ---
+
+$ fm-consult.sh scaffold newone
+fm-consult: data directory is not writable; fix its permissions: /private/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-consult-hard.6RP96w/b/data
+[exit 2]
+
+--- C. the consultation directory itself is not writable ---
+
+$ fm-consult.sh scaffold locked
+fm-consult: consultation directory is not writable; fix its permissions: /private/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-consult-hard.6RP96w/c/data/locked
+[exit 2]
+
+--- D. creation fails for a reason that is not a permission preflight ---
+
+$ fm-consult.sh scaffold collide
+fm-consult: consultation path is not a directory: /private/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-consult-hard.6RP96w/d/data/collide
+[exit 2]
+
+$ fm-consult.sh scaffold zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+scaffolded: /private/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-consult-hard.6RP96w/d/data/zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz/consult-brief.md (replace every placeholder)
+[exit 0]
+
+--- E. data/ is a plain file, not a directory ---
+
+$ fm-consult.sh status
+fm-consult: data path is not a directory: /private/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-consult-hard.6RP96w/e/data
+[exit 2]
+
+$ fm-consult.sh scaffold anything
+fm-consult: data path is not a directory: /private/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-consult-hard.6RP96w/e/data
+[exit 2]
+
+==============================================================
+ every refusal above is a single fm-consult: line with a cause,
+ a nonzero exit, and no bare tool error such as 'mkdir: ...'.
+==============================================================
+
+--- F. mkdir itself fails (home read-only, so data/ cannot be bootstrapped) ---
+
+$ fm-consult.sh scaffold alpha
+fm-consult: could not create consultation directory: /private/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-consult-cause.yopHa7/home/data/alpha (mkdir: /private/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-consult-cause.yopHa7/home/data: Permission denied)
+[exit 2]
+
+the underlying cause is preserved in parentheses, sanitized onto one
+fm-consult: line — no bare 'mkdir: ...' prefix and no extra forged lines.
