@@ -1,0 +1,21 @@
+Issue 2921 - barely-healthy restart accounting: end-to-end before/after
+Repo: firstmate   base 52ff62e -> target 29527af   captured 2026-08-24T09:28:40Z
+
+Fixture: a real fm-remote-job-worker.sh supervisor (FM_REMOTE_JOB_PLATFORM_OVERRIDE=Linux)
+supervising a child that lives 1.1s - just past FM_REMOTE_JOB_SUPERVISOR_HEALTHY_SECONDS=1 -
+and then exits 1. FM_REMOTE_JOB_SUPERVISOR_MAX_RESTARTS=3. This is exactly the shape that
+drove host load to 295 in issue 2921: every death looks 'healthy then failed', so the old
+consecutive-failure counter was reset on every iteration and never reached its guard.
+
+=== BEFORE (base 52ff62e) ===
+RESULT(52ff62e): supervisor STILL RUNNING after 30s - restarts are unbounded
+  children spawned so far: 38 (configured max restarts = 3)
+  supervisor stderr: 
+
+=== AFTER (target 29527af) ===
+RESULT(29527af): supervisor EXITED rc=1 after spawning 3 children (configured max restarts = 3)
+  supervisor stderr: remote-job-worker: remote job worker exited 3 times; stopping the supervisor
+
+=== Exit statuses 0 and 75 still short-circuit and are not charged to the restart budget ===
+child exit=0 -> supervisor exit=0, children spawned=1
+child exit=75 -> supervisor exit=75, children spawned=1

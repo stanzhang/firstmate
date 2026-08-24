@@ -1,0 +1,16 @@
+Narrowing check: the branch carries restart accounting only, no half-reverted lock change
+captured 2026-08-24T09:31:09Z
+
+$ git diff --name-only 52ff62e..29527af
+bin/fm-remote-job-worker.sh
+tests/fm-remote-job.test.sh
+
+$ git diff --stat 52ff62e..29527af -- bin/
+ bin/fm-remote-job-worker.sh | 21 ++++++++++++---------
+ 1 file changed, 12 insertions(+), 9 deletions(-)
+
+$ grep -rn 'supervisor.lock|SUPERVISOR_LOCK|supervisor_owner|await_supervisor|release_supervisor|serves_root|WORKER_START' bin tests
+(no matches - no supervisor-singleton/lock remnants)
+
+$ git diff 52ff62e..29527af -- bin/fm-remote-job-lib.sh bin/fm-remote-entrypoint.sh bin/fm-remote-job-reap-orphans.sh
+(empty - shared worker lock and remote-job library are byte-identical to upstream)
