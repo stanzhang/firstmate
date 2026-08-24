@@ -161,6 +161,10 @@
       "audience": "agent-runtime"
     },
     {
+      "path": ".agents/skills/outward-consultation/SKILL.md",
+      "audience": "agent-runtime"
+    },
+    {
       "path": ".agents/skills/process-event-sources/SKILL.md",
       "audience": "agent-runtime"
     },
@@ -250,6 +254,10 @@
     },
     {
       "path": "docs/configuration.md",
+      "audience": "operator-current"
+    },
+    {
+      "path": "docs/consultation.md",
       "audience": "operator-current"
     },
     {

@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kunchenguid/firstmate/docs/schemas/fm-consult-receipt-v1.schema.json",
+  "title": "Firstmate consultation terminal-attempt receipt v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "correlation_id",
+    "attempt_id",
+    "question_hash",
+    "output_hash",
+    "transport",
+    "started_at",
+    "finished_at",
+    "terminal_status",
+    "send_attempted",
+    "chat_url",
+    "chatgpt_response_id",
+    "visible_model_identity",
+    "detail_code"
+  ],
+  "properties": {
+    "schema_version": { "const": "fm-consult-receipt.v1" },
+    "correlation_id": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$" },
+    "attempt_id": { "type": "string", "pattern": "^attempt-[0-9]{4}$" },
+    "question_hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "output_hash": { "type": ["string", "null"], "pattern": "^[a-f0-9]{64}$" },
+    "transport": { "const": "chrome-devtools-axi" },
+    "started_at": { "type": "string", "format": "date-time" },
+    "finished_at": { "type": "string", "format": "date-time" },
+    "terminal_status": {
+      "enum": [
+        "completed",
+        "preflight_failed",
+        "ambiguous_delivery",
+        "malformed_response",
+        "output_collision",
+        "resubmission_blocked",
+        "question_changed"
+      ]
+    },
+    "send_attempted": { "type": "boolean" },
+    "chat_url": { "type": ["string", "null"] },
+    "chatgpt_response_id": { "type": ["string", "null"] },
+    "visible_model_identity": { "type": ["string", "null"] },
+    "detail_code": { "type": "string", "minLength": 1 }
+  }
+}
