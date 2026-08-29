@@ -1,0 +1,15 @@
+# Firstmate delivery-continuation end-to-end evidence
+recorded_head=8f77c144fbefe55b018d3b55c2ba2d8bcbc9ef3d
+first_call: result=sent task=ship
+replay_call: result=already-delivered task=ship
+durable_record=state/ship.inbox/001.msg
+durable_record_count=1
+durable_message=FIRSTMATE_DELIVERY schema=fm-delivery-continuation.v1 task=ship spawn_gen=g1 head=8f77c144fbefe55b018d3b55c2ba2d8bcbc9ef3d delivery=95a17e61cfe7d5a4
+Begin the already-authorized /no-mistakes validation flow now. Do not merge.
+lease_released=true
+terminal_channel=
+  Firstmate instruction waiting: list /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-delivery-evidence.0A5lgQ/home/state/ship.inbox/*.msg and, in numeric order, read and act on each, then mv each handled file to /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-delivery-evidence.0A5lgQ/home/state/ship.inbox/handled/.
+fleet_projection=
+  {"id":"ship","delivery_continuation":{"state":"pending","record_state":"pending","head":"8f77c144fbefe55b018d3b55c2ba2d8bcbc9ef3d","current_head":"8f77c144fbefe55b018d3b55c2ba2d8bcbc9ef3d","delivery":"95a17e61cfe7d5a4","worker_state":"unknown","worker_source":"pane","worker_run_attributed":false,"worker_unverified_busy":true}}
+bearings_projection=
+  {"id":"ship","state":"validation_pending","doing":"Validation instruction awaiting acknowledgement; activity source unverified"}
