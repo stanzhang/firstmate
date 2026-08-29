@@ -1,0 +1,4 @@
+cancel-focused dialog -> trust-unfocused
+Down moved focus to Yes -> trust-focused
+stale dialog in scrollback -> absent
+ordinary already-trusted composer -> absent

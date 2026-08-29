@@ -1,0 +1,3 @@
+cancel-focused dialog -> trust-unfocused (requires Down before Enter)
+trust-focused dialog -> trust-focused (safe to confirm with Enter)
+dialog only in stale scrollback above active footer -> absent (send no trust key)
