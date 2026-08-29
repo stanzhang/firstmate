@@ -1,0 +1,39 @@
+Installed Pi: @earendil-works/pi-coding-agent@0.84.4
+Calm off, collapsed parity: true
+--- collapsed FirstMate row (actual TUI text) ---
+
+                                                                                                    
+ fm_branch_outcomes                                                                                 
+ OUTCOME_01                                                                                         
+ OUTCOME_02                                                                                         
+ OUTCOME_03                                                                                         
+ OUTCOME_04                                                                                         
+ OUTCOME_05                                                                                         
+ OUTCOME_06                                                                                         
+ OUTCOME_07                                                                                         
+ OUTCOME_08                                                                                         
+ OUTCOME_09                                                                                         
+ OUTCOME_10                                                                                         
+ ... (2 more lines,  to expand)                                                                     
+                                                                                                    
+Calm off, expanded parity: true
+--- expanded FirstMate row (actual TUI text) ---
+
+                                                                                                    
+ fm_branch_outcomes                                                                                 
+ OUTCOME_01                                                                                         
+ OUTCOME_02                                                                                         
+ OUTCOME_03                                                                                         
+ OUTCOME_04                                                                                         
+ OUTCOME_05                                                                                         
+ OUTCOME_06                                                                                         
+ OUTCOME_07                                                                                         
+ OUTCOME_08                                                                                         
+ OUTCOME_09                                                                                         
+ OUTCOME_10                                                                                         
+ OUTCOME_11                                                                                         
+ OUTCOME_12                                                                                         
+                                                                                                    
+Calm on, visible TUI rows: 0
+Calm toggled off, stock parity restored: true
+Stock HTML export fallback delegated: true
