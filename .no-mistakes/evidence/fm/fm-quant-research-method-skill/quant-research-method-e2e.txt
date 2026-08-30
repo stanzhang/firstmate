@@ -1,0 +1,51 @@
+Quant research method - real Pi consumer evidence
+Date: 2026-08-30
+Target: a17ae2c24cd23a2fbb8833b4a748963c9ef5ff36
+Consumer: Pi 0.84.4
+Network/API mode: PI_OFFLINE=1, deterministic local provider, zero model cost
+
+Discovery command shape:
+  PI_OFFLINE=1 pi --print --approve --no-session --no-extensions \
+    -e <evidence>/quant-skill-consumer-e2e.ts \
+    --skill .agents/skills --no-tools \
+    --model quant-skill-e2e/deterministic --thinking off \
+    "Scope a quantitative experiment comparing a new indicator as a gate."
+
+QUANT_RESEARCH_METHOD_DISCOVERY_E2E
+consumer=pi version=0.84.4
+loaded=trigger-registered
+PASS AGENTS trigger reaches the consumer
+result=PASS
+
+Explicit skill-load command shape:
+  PI_OFFLINE=1 pi --print --approve --no-session --no-context-files --no-extensions \
+    -e <evidence>/quant-skill-consumer-e2e.ts \
+    --no-skills --skill .agents/skills/quant-research-method --no-tools \
+    --model quant-skill-e2e/deterministic --thinking off \
+    "/skill:quant-research-method"
+
+QUANT_RESEARCH_METHOD_CONSUMER_E2E
+consumer=pi version=0.84.4
+loaded=yes
+PASS skill body delivered by Pi
+PASS factor test is frozen-model paired ablation with Rank IC
+PASS factor tests forbid strategy entry and exit rules
+PASS gate requires prior exact factor evidence or factor-first
+PASS gate declares custom state strategy and matched controls
+PASS framework defaults are forbidden
+PASS point-in-time and completed-period timing enforced
+PASS one-indicator and matched placebo comparison enforced
+PASS coverage and per-signal support remain distinct
+PASS serial and overlap robust inference is explicit
+PASS walk-forward selection and purged sealed holdout enforced
+PASS honest null and no positive-result retuning enforced
+PASS all named failure detectors are delivered
+PASS market and methodology findings close every traversal
+PASS independent external review remains required
+PASS ranking backtest boundary is not swing or gate evidence
+PASS research-only authority boundary is preserved
+result=PASS
+
+This transcript records the actual emitted instruction interface received by an
+offline provider after Pi performed normal Firstmate context discovery and an
+explicit agent-only skill load. It does not infer behavior from the source file.

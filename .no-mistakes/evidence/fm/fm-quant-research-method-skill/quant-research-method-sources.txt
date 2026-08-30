@@ -1,0 +1,19 @@
+Quant research method - pinned source verification
+Date: 2026-08-30
+
+Command:
+  python3 <evidence>/quant-skill-source-verification.py
+
+PASS Qlib 79633dd signal strategy
+PASS Qlib 79633dd custom strategy state
+PASS RD-Agent 6762f84 factor runner
+PASS RD-Agent 6762f84 factor template
+PASS R&D-Agent(Q) paper v2
+PASS ML4T 47e2c44 point-in-time validation
+PASS ML4T 47e2c44 IC inference
+PASS ML4T 47e2c44 holdout mechanics
+result=PASS
+
+The verifier fetched only the immutable source URLs cited by the skill and
+checked the source-level facts that support its Qlib/RD-Agent boundary and the
+named research-method references.
