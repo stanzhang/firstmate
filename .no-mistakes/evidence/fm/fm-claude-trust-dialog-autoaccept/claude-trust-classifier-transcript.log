@@ -1,4 +1,8 @@
-cancel-focused dialog -> trust-unfocused
-Down moved focus to Yes -> trust-focused
-stale dialog in scrollback -> absent
-ordinary already-trusted composer -> absent
+cancel-focused-live                expected=trust-unfocused  actual=trust-unfocused
+yes-focused-live                   expected=trust-focused    actual=trust-focused
+permissions-cancel-variant         expected=trust-unfocused  actual=trust-unfocused
+stale-dialog-scrollback            expected=absent           actual=absent
+ordinary-idle-composer             expected=absent           actual=absent
+label-without-dialog               expected=absent           actual=absent
+ansi-styled-live-dialog            expected=trust-unfocused  actual=trust-unfocused
+RESULT: shared Claude trust classifier distinguished live focus, supported variant, ANSI styling, stale scrollback, and ordinary idle text.

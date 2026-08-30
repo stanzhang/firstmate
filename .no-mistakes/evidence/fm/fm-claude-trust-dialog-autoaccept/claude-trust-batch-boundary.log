@@ -1,0 +1,11 @@
+FM_TEST_BEGIN 2026-08-30T05:00:21Z tests/fm-spawn-batch.test.sh family=backend-dispatch expected_gate_skip=none
+ok - batch dispatch re-execs and reports every id=repo pair
+ok - batch detection: single pair batches, non-pair rejected, single-task and slash-id stay single
+ok - batch dispatch requires the shared ship delivery contract before any pair runs
+ok - scout batch refuses ship delivery flags instead of ignoring them
+ok - batch dispatch refuses to widen Claude trust authority across projects
+ok - projects/ paths are scoped through the firstmate home for single-task spawn
+FM_TEST_END 2026-08-30T05:00:23Z tests/fm-spawn-batch.test.sh exit=0 duration_ms=1715 gate_skip=false
+FM_TEST_SUMMARY total=1 failed=0 skipped_gate=0 duration_ms=1833
+FM_TEST_SUMMARY_FAMILY family=backend-dispatch count=1 duration_ms=1715 failed=0
+FM_TEST_SLOWEST rank=1 script=tests/fm-spawn-batch.test.sh duration_ms=1715

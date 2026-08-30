@@ -1,0 +1,1557 @@
++4: set -u
+++7: dirname tests/fm-backend-orca.test.sh
++7: . tests/lib.sh
+++24: '[' -n '' ']'
+++27: FM_TEST_LIB_SOURCED=1
+++36: export FM_GATE_REFUSE_BYPASS=1
+++36: FM_GATE_REFUSE_BYPASS=1
+++++41: dirname tests/lib.sh
++++41: cd tests/..
++++41: pwd
+++41: ROOT=/Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
+++72: FM_TEST_CLEANUP_DIRS=()
++++73: mktemp /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//.fm-test-cleanup.66463.XXXXXX
+++73: FM_TEST_CLEANUP_REGISTRY=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//.fm-test-cleanup.66463.8593Nk
++++81: fm_test_pid_identity 66463
++++76: local pid=66463
++++77: FM_STATE_OVERRIDE=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/
++++77: bash -c '. "$1"; fm_pid_identity "$2"' _ /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7/bin/fm-wake-lib.sh 66463
+++81: FM_TEST_OWNER_IDENTITY='Sat Aug 29 21:56:53 2026     bash -x tests/fm-backend-orca.test.sh'
+++110: trap fm_test_cleanup EXIT
+++111: trap 'fm_test_cleanup; exit 130' INT
+++112: trap 'fm_test_cleanup; exit 143' TERM
+++121: FM_TEST_ORPHAN_MAX_AGE_SECONDS=3600
+++152: '[' 0 '!=' 1 ']'
+++153: fm_test_reap_orphans
+++124: local marker dir mtime now owner_pid owner_identity current_identity
++++125: date +%s
+++125: now=1788065813
+++126: for marker in '"${TMPDIR:-/tmp}"/fm-*/.fm-test-fixture'
+++127: '[' -e /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-remote-secondmate-e2e.ixQGIp/.fm-test-fixture ']'
++++128: sed -n 1p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-remote-secondmate-e2e.ixQGIp/.fm-test-fixture
+++128: owner_pid=66289
++++129: sed -n '2,$p' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-remote-secondmate-e2e.ixQGIp/.fm-test-fixture
+++129: owner_identity='Sat Aug 29 21:36:22 2026     bash tests/fm-remote-secondmate-lifecycle-e2e.test.sh'
+++130: case "$owner_pid" in
++++133: fm_test_pid_identity 66289
+++133: current_identity=
+++133: current_identity=
+++134: '[' -n 'Sat Aug 29 21:36:22 2026     bash tests/fm-remote-secondmate-lifecycle-e2e.test.sh' ']'
+++134: '[' '' = 'Sat Aug 29 21:36:22 2026     bash tests/fm-remote-secondmate-lifecycle-e2e.test.sh' ']'
++++139: stat -c %Y /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-remote-secondmate-e2e.ixQGIp/.fm-test-fixture
++++139: stat -f %m /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-remote-secondmate-e2e.ixQGIp/.fm-test-fixture
+++139: mtime=1788064582
+++140: '[' 1231 -ge 3600 ']'
+++140: continue
+++9: fm_test_tmproot fm-backend-orca-tests
+++100: local prefix=fm-backend-orca-tests root
++++101: mktemp -d /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.XXXXXX
+++101: root=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj
+++102: printf '%s\n%s\n' 66463 'Sat Aug 29 21:56:53 2026     bash -x tests/fm-backend-orca.test.sh'
+++103: printf '%s\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj
+++107: printf '%s\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj
++9: TMP_ROOT=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj
++1310: test_capture_reads_terminal_tail_json
++83: local out
++84: orca_case capture-tail
++47: CASE_DIR=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-tail
++48: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-tail/responses
++49: LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-tail/log
++50: RESP=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-tail/responses
++51: :
+++52: make_orca_fakebin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-tail
+++12: local fb=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-tail/fakebin
+++13: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-tail/fakebin
+++14: cat
+++42: chmod +x /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-tail/fakebin/orca
+++43: printf '%s\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-tail/fakebin
++52: FB=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-tail/fakebin
++85: printf '{"result":{"terminal":{"tail":["line one","line two"]}}}\n'
+++87: PATH=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-tail/fakebin:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/sz/.codex/tmp/arg0/codex-arg0IprVJc:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/Users/sz/go/bin:/Users/sz/.cargo/bin:/Users/sz/bin:/usr/local/sbin
+++87: FM_ORCA_LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-tail/log
+++87: FM_ORCA_RESPONSES=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-tail/responses
+++87: bash -c '. "$0/bin/backends/orca.sh"; fm_backend_orca_capture term-123 40' /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
++87: out='line one
+line two'
++88: '[' 'line one
+line two' = 'line one
+line two' ']'
+++89: cat /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-tail/log
++89: assert_contains $'orca\037terminal\037read\037--terminal\037term-123\037--limit\03740\037--json' $'orca\037terminal\037read\037--terminal\037term-123\037--limit\03740\037--json' 'capture did not call orca terminal read with terminal/limit/json'
++276: case "$1" in
++277: :
++91: pass 'fm_backend_orca_capture: parses result.terminal.tail and calls terminal read'
++51: printf 'ok - %s\n' 'fm_backend_orca_capture: parses result.terminal.tail and calls terminal read'
+ok - fm_backend_orca_capture: parses result.terminal.tail and calls terminal read
++1311: test_capture_falls_back_to_text_fields
++95: local out
++96: orca_case capture-text
++47: CASE_DIR=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-text
++48: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-text/responses
++49: LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-text/log
++50: RESP=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-text/responses
++51: :
+++52: make_orca_fakebin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-text
+++12: local fb=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-text/fakebin
+++13: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-text/fakebin
+++14: cat
+++42: chmod +x /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-text/fakebin/orca
+++43: printf '%s\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-text/fakebin
++52: FB=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-text/fakebin
++97: printf '{"result":{"text":"plain text output"}}\n'
+++99: PATH=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-text/fakebin:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/sz/.codex/tmp/arg0/codex-arg0IprVJc:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/Users/sz/go/bin:/Users/sz/.cargo/bin:/Users/sz/bin:/usr/local/sbin
+++99: FM_ORCA_LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-text/log
+++99: FM_ORCA_RESPONSES=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-text/responses
+++99: bash -c '. "$0/bin/backends/orca.sh"; fm_backend_orca_capture term-abc 5' /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
++99: out='plain text output'
++100: '[' 'plain text output' = 'plain text output' ']'
++101: pass 'fm_backend_orca_capture: falls back to result text fields'
++51: printf 'ok - %s\n' 'fm_backend_orca_capture: falls back to result text fields'
+ok - fm_backend_orca_capture: falls back to result text fields
++1312: test_capture_fails_on_orca_error_json
++105: local out status
++106: orca_case capture-error-json
++47: CASE_DIR=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-error-json
++48: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-error-json/responses
++49: LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-error-json/log
++50: RESP=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-error-json/responses
++51: :
+++52: make_orca_fakebin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-error-json
+++12: local fb=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-error-json/fakebin
+++13: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-error-json/fakebin
+++14: cat
+++42: chmod +x /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-error-json/fakebin/orca
+++43: printf '%s\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-error-json/fakebin
++52: FB=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-error-json/fakebin
++107: printf '{"ok":false,"error":{"code":"terminal_handle_stale","message":"terminal handle stale"}}\n'
+++109: PATH=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-error-json/fakebin:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/sz/.codex/tmp/arg0/codex-arg0IprVJc:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/Users/sz/go/bin:/Users/sz/.cargo/bin:/Users/sz/bin:/usr/local/sbin
+++109: FM_ORCA_LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-error-json/log
+++109: FM_ORCA_RESPONSES=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/capture-error-json/responses
+++109: bash -c '. "$0/bin/backends/orca.sh"; fm_backend_orca_capture term-stale 5' /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
++109: out='terminal handle stale'
++110: status=2
++111: '[' 2 -ne 0 ']'
++112: assert_contains 'terminal handle stale' 'terminal handle stale' 'capture should surface the Orca read error message'
++276: case "$1" in
++277: :
++113: pass 'fm_backend_orca_capture: fails closed on Orca read error JSON'
++51: printf 'ok - %s\n' 'fm_backend_orca_capture: fails closed on Orca read error JSON'
+ok - fm_backend_orca_capture: fails closed on Orca read error JSON
++1313: test_runtime_check_accepts_ready_orca_status
++117: local out
++118: orca_case runtime-ready
++47: CASE_DIR=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-ready
++48: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-ready/responses
++49: LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-ready/log
++50: RESP=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-ready/responses
++51: :
+++52: make_orca_fakebin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-ready
+++12: local fb=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-ready/fakebin
+++13: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-ready/fakebin
+++14: cat
+++42: chmod +x /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-ready/fakebin/orca
+++43: printf '%s\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-ready/fakebin
++52: FB=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-ready/fakebin
++119: printf '{"ok":true,"result":{"runtime":{"reachable":true,"state":"ready"}}}\n'
+++121: PATH=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-ready/fakebin:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/sz/.codex/tmp/arg0/codex-arg0IprVJc:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/Users/sz/go/bin:/Users/sz/.cargo/bin:/Users/sz/bin:/usr/local/sbin
+++121: FM_ORCA_LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-ready/log
+++121: FM_ORCA_RESPONSES=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-ready/responses
+++121: FM_ORCA_STATUS_RESPONSE=sequence
+++121: bash -c '. "$0/bin/backends/orca.sh"; fm_backend_orca_runtime_check' /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
++121: out=
++122: '[' -z '' ']'
+++123: cat /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-ready/log
++123: assert_contains $'orca\037status\037--json' $'orca\037status\037--json' 'runtime_check did not call orca status --json'
++276: case "$1" in
++277: :
++125: pass 'fm_backend_orca_runtime_check: accepts reachable ready runtime'
++51: printf 'ok - %s\n' 'fm_backend_orca_runtime_check: accepts reachable ready runtime'
+ok - fm_backend_orca_runtime_check: accepts reachable ready runtime
++1314: test_runtime_check_refuses_unready_orca_status
++129: local out status
++130: orca_case runtime-unready
++47: CASE_DIR=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-unready
++48: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-unready/responses
++49: LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-unready/log
++50: RESP=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-unready/responses
++51: :
+++52: make_orca_fakebin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-unready
+++12: local fb=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-unready/fakebin
+++13: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-unready/fakebin
+++14: cat
+++42: chmod +x /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-unready/fakebin/orca
+++43: printf '%s\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-unready/fakebin
++52: FB=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-unready/fakebin
++131: printf '{"ok":true,"result":{"runtime":{"reachable":false,"state":"starting"}}}\n'
+++133: PATH=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-unready/fakebin:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/sz/.codex/tmp/arg0/codex-arg0IprVJc:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/Users/sz/go/bin:/Users/sz/.cargo/bin:/Users/sz/bin:/usr/local/sbin
+++133: FM_ORCA_LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-unready/log
+++133: FM_ORCA_RESPONSES=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-unready/responses
+++133: FM_ORCA_STATUS_RESPONSE=sequence
+++133: bash -c '. "$0/bin/backends/orca.sh"; fm_backend_orca_runtime_check' /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
++133: out='error: backend=orca requires a ready Orca runtime (reachable=false, state=starting)'
++134: status=1
++135: '[' 1 -ne 0 ']'
++136: assert_contains 'error: backend=orca requires a ready Orca runtime (reachable=false, state=starting)' 'requires a ready Orca runtime' 'runtime_check should explain the readiness requirement'
++276: case "$1" in
++277: :
++137: pass 'fm_backend_orca_runtime_check: fails closed when runtime is not ready'
++51: printf 'ok - %s\n' 'fm_backend_orca_runtime_check: fails closed when runtime is not ready'
+ok - fm_backend_orca_runtime_check: fails closed when runtime is not ready
++1315: test_send_text_submit_verifies_empty_composer_after_enter
++141: local out
++142: orca_case send-submit
++47: CASE_DIR=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit
++48: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit/responses
++49: LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit/log
++50: RESP=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit/responses
++51: :
+++52: make_orca_fakebin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit
+++12: local fb=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit/fakebin
+++13: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit/fakebin
+++14: cat
+++42: chmod +x /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit/fakebin/orca
+++43: printf '%s\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit/fakebin
++52: FB=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit/fakebin
++143: printf '{"ok":true,"result":{"send":{"handle":"term-123","accepted":true}}}\n'
++144: printf '{"ok":true,"result":{"send":{"handle":"term-123","accepted":true}}}\n'
++145: printf '{"ok":true,"result":{"terminal":{"tail":["╭───╮","│ > │","╰───╯"]}}}\n'
+++147: PATH=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit/fakebin:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/sz/.codex/tmp/arg0/codex-arg0IprVJc:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/Users/sz/go/bin:/Users/sz/.cargo/bin:/Users/sz/bin:/usr/local/sbin
+++147: FM_ORCA_LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit/log
+++147: FM_ORCA_RESPONSES=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit/responses
+++147: bash -c '. "$0/bin/backends/orca.sh"; fm_backend_orca_send_text_submit term-123 "hello captain" 3 0.01 0.01' /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
++147: out=empty
++148: '[' empty = empty ']'
+++149: cat /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit/log
++149: assert_contains 'orcaterminalsend--terminalterm-123--texthello captain--json
+orcaterminalsend--terminalterm-123--text--enter--json
+orcaterminalread--terminalterm-123--limit20--json' 'orcaterminalsend--terminalterm-123--texthello captain--json' 'send_text_submit did not type the text literally before Enter'
++276: case "$1" in
++277: :
+++151: cat /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit/log
++151: assert_contains 'orcaterminalsend--terminalterm-123--texthello captain--json
+orcaterminalsend--terminalterm-123--text--enter--json
+orcaterminalread--terminalterm-123--limit20--json' $'orca\037terminal\037send\037--terminal\037term-123\037--text\037\037--enter\037--json' 'send_text_submit did not send Enter after typing'
++276: case "$1" in
++277: :
+++157: cat /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit/log
++157: assert_not_contains 'orcaterminalsend--terminalterm-123--texthello captain--json
+orcaterminalsend--terminalterm-123--text--enter--json
+orcaterminalread--terminalterm-123--limit20--json' $'\037--cursor\037' 'the composer read must never page backward into scrollback'
++284: case "$1" in
++286: :
++159: pass 'fm_backend_orca_send_text_submit: verifies empty composer after Enter with one bounded read'
++51: printf 'ok - %s\n' 'fm_backend_orca_send_text_submit: verifies empty composer after Enter with one bounded read'
+ok - fm_backend_orca_send_text_submit: verifies empty composer after Enter with one bounded read
++1316: test_send_text_submit_borderless_claude_confirms
++167: local out
++168: orca_case send-submit-borderless
++47: CASE_DIR=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-borderless
++48: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-borderless/responses
++49: LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-borderless/log
++50: RESP=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-borderless/responses
++51: :
+++52: make_orca_fakebin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-borderless
+++12: local fb=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-borderless/fakebin
+++13: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-borderless/fakebin
+++14: cat
+++42: chmod +x /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-borderless/fakebin/orca
+++43: printf '%s\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-borderless/fakebin
++52: FB=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-borderless/fakebin
++169: printf '{"ok":true,"result":{"send":{"handle":"term-123","accepted":true}}}\n'
++170: printf '{"ok":true,"result":{"send":{"handle":"term-123","accepted":true}}}\n'
++171: printf '{"ok":true,"result":{"terminal":{"tail":["────────────────","❯","────────────────"]}}}\n'
+++173: PATH=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-borderless/fakebin:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/sz/.codex/tmp/arg0/codex-arg0IprVJc:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/Users/sz/go/bin:/Users/sz/.cargo/bin:/Users/sz/bin:/usr/local/sbin
+++173: FM_ORCA_LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-borderless/log
+++173: FM_ORCA_RESPONSES=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-borderless/responses
+++173: bash -c '. "$0/bin/backends/orca.sh"; fm_backend_orca_send_text_submit term-123 "hello captain" 3 0.01 0.01' /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
++173: out=empty
++174: '[' empty = empty ']'
++175: pass 'fm_backend_orca_send_text_submit: a borderless claude composer confirms delivery (the missing #2029 shape)'
++51: printf 'ok - %s\n' 'fm_backend_orca_send_text_submit: a borderless claude composer confirms delivery (the missing #2029 shape)'
+ok - fm_backend_orca_send_text_submit: a borderless claude composer confirms delivery (the missing #2029 shape)
++1317: test_composer_state_stale_banner_never_wins
++185: local out
++186: orca_case composer-stale-banner
++47: CASE_DIR=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-stale-banner
++48: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-stale-banner/responses
++49: LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-stale-banner/log
++50: RESP=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-stale-banner/responses
++51: :
+++52: make_orca_fakebin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-stale-banner
+++12: local fb=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-stale-banner/fakebin
+++13: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-stale-banner/fakebin
+++14: cat
+++42: chmod +x /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-stale-banner/fakebin/orca
+++43: printf '%s\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-stale-banner/fakebin
++52: FB=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-stale-banner/fakebin
++187: printf '{"ok":true,"result":{"terminal":{"tail":["╭────────────────────────╮","│ permissions: YOLO mode │","╰────────────────────────╯","› Use /skills to list available skills"]}}}\n'
+++189: PATH=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-stale-banner/fakebin:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/sz/.codex/tmp/arg0/codex-arg0IprVJc:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/Users/sz/go/bin:/Users/sz/.cargo/bin:/Users/sz/bin:/usr/local/sbin
+++189: FM_ORCA_LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-stale-banner/log
+++189: FM_ORCA_RESPONSES=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-stale-banner/responses
+++189: bash -c '. "$0/bin/backends/orca.sh"; fm_backend_orca_composer_state term-123' /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
++189: out=unknown
++190: '[' unknown '!=' pending ']'
++191: '[' unknown = unknown ']'
++192: pass 'fm_backend_orca_composer_state: a stale startup banner cannot outrank the live composer row'
++51: printf 'ok - %s\n' 'fm_backend_orca_composer_state: a stale startup banner cannot outrank the live composer row'
+ok - fm_backend_orca_composer_state: a stale startup banner cannot outrank the live composer row
++1318: test_send_text_submit_retries_when_composer_stays_pending
++196: local out log_text enter_count
++197: orca_case send-submit-pending
++47: CASE_DIR=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-pending
++48: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-pending/responses
++49: LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-pending/log
++50: RESP=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-pending/responses
++51: :
+++52: make_orca_fakebin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-pending
+++12: local fb=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-pending/fakebin
+++13: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-pending/fakebin
+++14: cat
+++42: chmod +x /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-pending/fakebin/orca
+++43: printf '%s\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-pending/fakebin
++52: FB=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-pending/fakebin
++198: printf '{"ok":true,"result":{"send":{"handle":"term-123","accepted":true}}}\n'
++199: printf '{"ok":true,"result":{"send":{"handle":"term-123","accepted":true}}}\n'
++200: printf '{"ok":true,"result":{"terminal":{"tail":["╭─────────────────╮","│ > hello captain │","╰─────────────────╯"]}}}\n'
++201: printf '{"ok":true,"result":{"send":{"handle":"term-123","accepted":true}}}\n'
++202: printf '{"ok":true,"result":{"terminal":{"tail":["╭─────────────────╮","│ >               │","╰─────────────────╯"]}}}\n'
+++204: PATH=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-pending/fakebin:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/sz/.codex/tmp/arg0/codex-arg0IprVJc:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/Users/sz/go/bin:/Users/sz/.cargo/bin:/Users/sz/bin:/usr/local/sbin
+++204: FM_ORCA_LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-pending/log
+++204: FM_ORCA_RESPONSES=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-pending/responses
+++204: bash -c '. "$0/bin/backends/orca.sh"; fm_backend_orca_send_text_submit term-123 "hello captain" 3 0.01 0.01' /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
++204: out=empty
++205: '[' empty = empty ']'
+++206: cat /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-pending/log
++206: log_text='orcaterminalsend--terminalterm-123--texthello captain--json
+orcaterminalsend--terminalterm-123--text--enter--json
+orcaterminalread--terminalterm-123--limit20--json
+orcaterminalsend--terminalterm-123--text--enter--json
+orcaterminalread--terminalterm-123--limit20--json'
+++207: printf '%s\n' 'orcaterminalsend--terminalterm-123--texthello captain--json
+orcaterminalsend--terminalterm-123--text--enter--json
+orcaterminalread--terminalterm-123--limit20--json
+orcaterminalsend--terminalterm-123--text--enter--json
+orcaterminalread--terminalterm-123--limit20--json'
+++207: grep -c $'orca\037terminal\037send\037--terminal\037term-123\037--text\037\037--enter\037--json'
++207: enter_count=2
++208: '[' 2 -eq 2 ']'
++209: pass 'fm_backend_orca_send_text_submit: retries Enter while composer remains pending'
++51: printf 'ok - %s\n' 'fm_backend_orca_send_text_submit: retries Enter while composer remains pending'
+ok - fm_backend_orca_send_text_submit: retries Enter while composer remains pending
++1319: test_composer_state_popup_placeholder_fill_is_pending
++213: local out
++214: orca_case composer-popup-placeholder
++47: CASE_DIR=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-popup-placeholder
++48: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-popup-placeholder/responses
++49: LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-popup-placeholder/log
++50: RESP=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-popup-placeholder/responses
++51: :
+++52: make_orca_fakebin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-popup-placeholder
+++12: local fb=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-popup-placeholder/fakebin
+++13: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-popup-placeholder/fakebin
+++14: cat
+++42: chmod +x /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-popup-placeholder/fakebin/orca
+++43: printf '%s\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-popup-placeholder/fakebin
++52: FB=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-popup-placeholder/fakebin
++215: printf '{"ok":true,"result":{"terminal":{"tail":["  ╭──────────────────────────────────────╮","  │ ❯ /compact compaction instructions   │","  ╰──────────────── Composer ────────────╯","","  Enter:send"]}}}\n'
+++217: PATH=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-popup-placeholder/fakebin:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/sz/.codex/tmp/arg0/codex-arg0IprVJc:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/Users/sz/go/bin:/Users/sz/.cargo/bin:/Users/sz/bin:/usr/local/sbin
+++217: FM_ORCA_LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-popup-placeholder/log
+++217: FM_ORCA_RESPONSES=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-popup-placeholder/responses
+++217: bash -c '. "$0/bin/backends/orca.sh"; fm_backend_orca_composer_state term-123' /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
++217: out=pending
++218: '[' pending = pending ']'
++219: pass 'fm_backend_orca_composer_state: a slash-command popup'\''s argument-hint placeholder still reads pending'
++51: printf 'ok - %s\n' 'fm_backend_orca_composer_state: a slash-command popup'\''s argument-hint placeholder still reads pending'
+ok - fm_backend_orca_composer_state: a slash-command popup's argument-hint placeholder still reads pending
++1320: test_composer_state_bare_shell_prompt_is_unknown
++227: local out
++228: orca_case composer-bare-shell
++47: CASE_DIR=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-bare-shell
++48: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-bare-shell/responses
++49: LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-bare-shell/log
++50: RESP=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-bare-shell/responses
++51: :
+++52: make_orca_fakebin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-bare-shell
+++12: local fb=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-bare-shell/fakebin
+++13: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-bare-shell/fakebin
+++14: cat
+++42: chmod +x /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-bare-shell/fakebin/orca
+++43: printf '%s\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-bare-shell/fakebin
++52: FB=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-bare-shell/fakebin
++229: printf '{"ok":true,"result":{"terminal":{"tail":["some earlier output","kunchen@mac firstmate $ "]}}}\n'
+++231: PATH=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-bare-shell/fakebin:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/sz/.codex/tmp/arg0/codex-arg0IprVJc:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/Users/sz/go/bin:/Users/sz/.cargo/bin:/Users/sz/bin:/usr/local/sbin
+++231: FM_ORCA_LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-bare-shell/log
+++231: FM_ORCA_RESPONSES=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/composer-bare-shell/responses
+++231: bash -c '. "$0/bin/backends/orca.sh"; fm_backend_orca_composer_state term-123' /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
++231: out=unknown
++232: '[' unknown = unknown ']'
++233: pass 'fm_backend_orca_composer_state: a bare dead-shell prompt reads unknown (unsafe-for-injection), never empty'
++51: printf 'ok - %s\n' 'fm_backend_orca_composer_state: a bare dead-shell prompt reads unknown (unsafe-for-injection), never empty'
+ok - fm_backend_orca_composer_state: a bare dead-shell prompt reads unknown (unsafe-for-injection), never empty
++1321: test_send_text_submit_popup_autocomplete_requires_second_enter
++237: local out log_text enter_count
++238: orca_case send-submit-popup-autocomplete
++47: CASE_DIR=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-popup-autocomplete
++48: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-popup-autocomplete/responses
++49: LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-popup-autocomplete/log
++50: RESP=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-popup-autocomplete/responses
++51: :
+++52: make_orca_fakebin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-popup-autocomplete
+++12: local fb=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-popup-autocomplete/fakebin
+++13: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-popup-autocomplete/fakebin
+++14: cat
+++42: chmod +x /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-popup-autocomplete/fakebin/orca
+++43: printf '%s\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-popup-autocomplete/fakebin
++52: FB=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-popup-autocomplete/fakebin
++242: printf '{"ok":true,"result":{"send":{"handle":"term-123","accepted":true}}}\n'
++243: printf '{"ok":true,"result":{"send":{"handle":"term-123","accepted":true}}}\n'
++244: printf '{"ok":true,"result":{"terminal":{"tail":["  ╭──────────────────────────────────────╮","  │ ❯ /compact compaction instructions   │","  ╰──────────────── Composer ────────────╯","","  Enter:send"]}}}\n'
++247: printf '{"ok":true,"result":{"send":{"handle":"term-123","accepted":true}}}\n'
++248: printf '{"ok":true,"result":{"terminal":{"tail":["  ╭────────────────────────╮","  │ ❯                      │","  ╰──────── Composer ──────╯","","  Shift+Tab:mode"]}}}\n'
+++250: PATH=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-popup-autocomplete/fakebin:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/sz/.codex/tmp/arg0/codex-arg0IprVJc:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/Users/sz/go/bin:/Users/sz/.cargo/bin:/Users/sz/bin:/usr/local/sbin
+++250: FM_ORCA_LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-popup-autocomplete/log
+++250: FM_ORCA_RESPONSES=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-popup-autocomplete/responses
+++250: bash -c '. "$0/bin/backends/orca.sh"; fm_backend_orca_send_text_submit term-123 "/compact" 3 0.01 1.2' /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
++250: out=empty
++251: '[' empty = empty ']'
+++252: cat /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-submit-popup-autocomplete/log
++252: log_text='orcaterminalsend--terminalterm-123--text/compact--json
+orcaterminalsend--terminalterm-123--text--enter--json
+orcaterminalread--terminalterm-123--limit20--json
+orcaterminalsend--terminalterm-123--text--enter--json
+orcaterminalread--terminalterm-123--limit20--json'
+++253: printf '%s\n' 'orcaterminalsend--terminalterm-123--text/compact--json
+orcaterminalsend--terminalterm-123--text--enter--json
+orcaterminalread--terminalterm-123--limit20--json
+orcaterminalsend--terminalterm-123--text--enter--json
+orcaterminalread--terminalterm-123--limit20--json'
+++253: grep -c $'orca\037terminal\037send\037--terminal\037term-123\037--text\037\037--enter\037--json'
++253: enter_count=2
++254: '[' 2 -eq 2 ']'
++255: pass 'fm_backend_orca_send_text_submit: a slash-command popup'\''s placeholder fill on Enter #1 does not short-circuit as submitted; Enter #2 is retried and lands it'
++51: printf 'ok - %s\n' 'fm_backend_orca_send_text_submit: a slash-command popup'\''s placeholder fill on Enter #1 does not short-circuit as submitted; Enter #2 is retried and lands it'
+ok - fm_backend_orca_send_text_submit: a slash-command popup's placeholder fill on Enter #1 does not short-circuit as submitted; Enter #2 is retried and lands it
++1322: test_send_literal_constructs_non_enter_send
++259: orca_case send-literal
++47: CASE_DIR=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-literal
++48: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-literal/responses
++49: LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-literal/log
++50: RESP=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-literal/responses
++51: :
+++52: make_orca_fakebin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-literal
+++12: local fb=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-literal/fakebin
+++13: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-literal/fakebin
+++14: cat
+++42: chmod +x /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-literal/fakebin/orca
+++43: printf '%s\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-literal/fakebin
++52: FB=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-literal/fakebin
++260: PATH=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-literal/fakebin:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/sz/.codex/tmp/arg0/codex-arg0IprVJc:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/Users/sz/go/bin:/Users/sz/.cargo/bin:/Users/sz/bin:/usr/local/sbin
++260: FM_ORCA_LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-literal/log
++260: FM_ORCA_RESPONSES=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-literal/responses
++260: bash -c '. "$0/bin/backends/orca.sh"; fm_backend_orca_send_literal term-123 "typed only"' /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
++262: expect_code 0 0 'send_literal should succeed'
++292: local expected=0 actual=0 'label=send_literal should succeed'
++293: '[' 0 = 0 ']'
+++263: cat /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-literal/log
++263: assert_contains 'orcaterminalsend--terminalterm-123--texttyped only--json' 'orcaterminalsend--terminalterm-123--texttyped only--json' 'send_literal did not send text without --enter'
++276: case "$1" in
++277: :
+++265: cat /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-literal/log
++265: assert_not_contains 'orcaterminalsend--terminalterm-123--texttyped only--json' $'\037--enter' 'send_literal should not submit Enter'
++284: case "$1" in
++286: :
++266: pass 'fm_backend_orca_send_literal: sends text without submitting'
++51: printf 'ok - %s\n' 'fm_backend_orca_send_literal: sends text without submitting'
+ok - fm_backend_orca_send_literal: sends text without submitting
++1323: test_send_text_submit_reports_send_failed
++270: local out
++271: orca_case send-fail
++47: CASE_DIR=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-fail
++48: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-fail/responses
++49: LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-fail/log
++50: RESP=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-fail/responses
++51: :
+++52: make_orca_fakebin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-fail
+++12: local fb=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-fail/fakebin
+++13: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-fail/fakebin
+++14: cat
+++42: chmod +x /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-fail/fakebin/orca
+++43: printf '%s\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-fail/fakebin
++52: FB=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-fail/fakebin
++272: printf '1\n'
+++274: PATH=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-fail/fakebin:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/sz/.codex/tmp/arg0/codex-arg0IprVJc:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/Users/sz/go/bin:/Users/sz/.cargo/bin:/Users/sz/bin:/usr/local/sbin
+++274: FM_ORCA_LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-fail/log
+++274: FM_ORCA_RESPONSES=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-fail/responses
+++274: bash -c '. "$0/bin/backends/orca.sh"; fm_backend_orca_send_text_submit term-123 "hello" 1 0.01 0.01' /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
++274: out=send-failed
++275: '[' send-failed = send-failed ']'
++276: pass 'fm_backend_orca_send_text_submit: reports send-failed when Orca send fails'
++51: printf 'ok - %s\n' 'fm_backend_orca_send_text_submit: reports send-failed when Orca send fails'
+ok - fm_backend_orca_send_text_submit: reports send-failed when Orca send fails
++1324: test_send_helpers_reject_orca_error_json
++280: local out status
++281: orca_case send-error-json
++47: CASE_DIR=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-error-json
++48: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-error-json/responses
++49: LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-error-json/log
++50: RESP=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-error-json/responses
++51: :
+++52: make_orca_fakebin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-error-json
+++12: local fb=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-error-json/fakebin
+++13: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-error-json/fakebin
+++14: cat
+++42: chmod +x /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-error-json/fakebin/orca
+++43: printf '%s\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-error-json/fakebin
++52: FB=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-error-json/fakebin
++282: printf '{"ok":false,"error":{"code":"terminal_handle_stale","message":"terminal handle stale"}}\n'
+++284: PATH=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-error-json/fakebin:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/sz/.codex/tmp/arg0/codex-arg0IprVJc:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/Users/sz/go/bin:/Users/sz/.cargo/bin:/Users/sz/bin:/usr/local/sbin
+++284: FM_ORCA_LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-error-json/log
+++284: FM_ORCA_RESPONSES=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-error-json/responses
+++284: bash -c '. "$0/bin/backends/orca.sh"; fm_backend_orca_send_text_line term-stale "hello"' /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
++284: out='terminal handle stale'
++285: status=2
++286: '[' 2 -ne 0 ']'
++287: assert_contains 'terminal handle stale' 'terminal handle stale' 'send_text_line should surface the Orca send error'
++276: case "$1" in
++277: :
++288: printf '{"ok":false,"error":{"code":"terminal_handle_stale","message":"terminal handle stale"}}\n'
+++290: PATH=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-error-json/fakebin:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/sz/.codex/tmp/arg0/codex-arg0IprVJc:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/Users/sz/go/bin:/Users/sz/.cargo/bin:/Users/sz/bin:/usr/local/sbin
+++290: FM_ORCA_LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-error-json/log
+++290: FM_ORCA_RESPONSES=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-error-json/responses
+++290: bash -c '. "$0/bin/backends/orca.sh"; fm_backend_orca_send_literal term-stale "typed"' /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
++290: out='terminal handle stale'
++291: status=2
++292: '[' 2 -ne 0 ']'
++293: printf '{"ok":false,"error":{"code":"terminal_handle_stale","message":"terminal handle stale"}}\n'
+++295: PATH=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-error-json/fakebin:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/sz/.codex/tmp/arg0/codex-arg0IprVJc:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/Users/sz/go/bin:/Users/sz/.cargo/bin:/Users/sz/bin:/usr/local/sbin
+++295: FM_ORCA_LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-error-json/log
+++295: FM_ORCA_RESPONSES=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-error-json/responses
+++295: bash -c '. "$0/bin/backends/orca.sh"; fm_backend_orca_send_key term-stale Enter' /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
++295: out='terminal handle stale'
++296: status=2
++297: '[' 2 -ne 0 ']'
++298: printf '{"ok":false,"error":{"code":"terminal_handle_stale","message":"terminal handle stale"}}\n'
+++300: PATH=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-error-json/fakebin:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/sz/.codex/tmp/arg0/codex-arg0IprVJc:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/Users/sz/go/bin:/Users/sz/.cargo/bin:/Users/sz/bin:/usr/local/sbin
+++300: FM_ORCA_LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-error-json/log
+++300: FM_ORCA_RESPONSES=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-error-json/responses
+++300: bash -c '. "$0/bin/backends/orca.sh"; fm_backend_orca_send_text_submit term-stale "hello" 1 0.01 0.01' /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
++300: out=send-failed
++301: '[' send-failed = send-failed ']'
++302: pass 'Orca send helpers: fail closed on ok:false JSON'
++51: printf 'ok - %s\n' 'Orca send helpers: fail closed on ok:false JSON'
+ok - Orca send helpers: fail closed on ok:false JSON
++1325: test_send_key_enter_and_interrupt
++306: orca_case send-key
++47: CASE_DIR=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key
++48: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key/responses
++49: LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key/log
++50: RESP=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key/responses
++51: :
+++52: make_orca_fakebin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key
+++12: local fb=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key/fakebin
+++13: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key/fakebin
+++14: cat
+++42: chmod +x /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key/fakebin/orca
+++43: printf '%s\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key/fakebin
++52: FB=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key/fakebin
++307: PATH=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key/fakebin:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/sz/.codex/tmp/arg0/codex-arg0IprVJc:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/Users/sz/go/bin:/Users/sz/.cargo/bin:/Users/sz/bin:/usr/local/sbin
++307: FM_ORCA_LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key/log
++307: FM_ORCA_RESPONSES=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key/responses
++307: bash -c '. "$0/bin/backends/orca.sh"; fm_backend_orca_send_key term-123 Enter; fm_backend_orca_send_key term-123 C-c' /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
++309: expect_code 0 0 'send_key Enter and C-c should succeed'
++292: local expected=0 actual=0 'label=send_key Enter and C-c should succeed'
++293: '[' 0 = 0 ']'
+++310: cat /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key/log
++310: assert_contains 'orcaterminalsend--terminalterm-123--text--enter--json
+orcaterminalsend--terminalterm-123--interrupt--json' $'orca\037terminal\037send\037--terminal\037term-123\037--text\037\037--enter\037--json' 'send_key Enter did not send empty text with --enter'
++276: case "$1" in
++277: :
+++312: cat /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key/log
++312: assert_contains 'orcaterminalsend--terminalterm-123--text--enter--json
+orcaterminalsend--terminalterm-123--interrupt--json' $'orca\037terminal\037send\037--terminal\037term-123\037--interrupt\037--json' 'send_key C-c did not send --interrupt'
++276: case "$1" in
++277: :
++314: pass 'fm_backend_orca_send_key: Enter maps to empty enter, C-c maps to interrupt'
++51: printf 'ok - %s\n' 'fm_backend_orca_send_key: Enter maps to empty enter, C-c maps to interrupt'
+ok - fm_backend_orca_send_key: Enter maps to empty enter, C-c maps to interrupt
++1326: test_send_key_refuses_unknown_key
++318: local out status
++319: orca_case send-key-unknown
++47: CASE_DIR=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key-unknown
++48: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key-unknown/responses
++49: LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key-unknown/log
++50: RESP=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key-unknown/responses
++51: :
+++52: make_orca_fakebin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key-unknown
+++12: local fb=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key-unknown/fakebin
+++13: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key-unknown/fakebin
+++14: cat
+++42: chmod +x /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key-unknown/fakebin/orca
+++43: printf '%s\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key-unknown/fakebin
++52: FB=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key-unknown/fakebin
+++321: PATH=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key-unknown/fakebin:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/sz/.codex/tmp/arg0/codex-arg0IprVJc:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/Users/sz/go/bin:/Users/sz/.cargo/bin:/Users/sz/bin:/usr/local/sbin
+++321: FM_ORCA_LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key-unknown/log
+++321: FM_ORCA_RESPONSES=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key-unknown/responses
+++321: bash -c '. "$0/bin/backends/orca.sh"; fm_backend_orca_send_key term-123 F12' /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
++321: out='error: unsupported Orca key '\''F12'\'''
++322: status=1
++323: '[' 1 -ne 0 ']'
++324: assert_contains 'error: unsupported Orca key '\''F12'\''' 'unsupported Orca key '\''F12'\''' 'send_key did not name the unsupported key'
++276: case "$1" in
++277: :
++325: pass 'fm_backend_orca_send_key: refuses unsupported keys loudly'
++51: printf 'ok - %s\n' 'fm_backend_orca_send_key: refuses unsupported keys loudly'
+ok - fm_backend_orca_send_key: refuses unsupported keys loudly
++1327: test_send_key_refuses_escape_until_supported
++329: local out status
++330: orca_case send-key-escape
++47: CASE_DIR=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key-escape
++48: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key-escape/responses
++49: LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key-escape/log
++50: RESP=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key-escape/responses
++51: :
+++52: make_orca_fakebin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key-escape
+++12: local fb=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key-escape/fakebin
+++13: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key-escape/fakebin
+++14: cat
+++42: chmod +x /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key-escape/fakebin/orca
+++43: printf '%s\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key-escape/fakebin
++52: FB=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key-escape/fakebin
+++332: PATH=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key-escape/fakebin:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/sz/.codex/tmp/arg0/codex-arg0IprVJc:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/Users/sz/go/bin:/Users/sz/.cargo/bin:/Users/sz/bin:/usr/local/sbin
+++332: FM_ORCA_LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key-escape/log
+++332: FM_ORCA_RESPONSES=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key-escape/responses
+++332: bash -c '. "$0/bin/backends/orca.sh"; fm_backend_orca_send_key term-123 Escape' /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
++332: out='error: unsupported Orca key '\''Escape'\'''
++333: status=1
++334: '[' 1 -ne 0 ']'
++335: assert_contains 'error: unsupported Orca key '\''Escape'\''' 'unsupported Orca key '\''Escape'\''' 'send_key did not name Escape as unsupported'
++276: case "$1" in
++277: :
++336: '[' '!' -s /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/send-key-escape/log ']'
++337: pass 'fm_backend_orca_send_key: refuses Escape instead of mapping it to interrupt'
++51: printf 'ok - %s\n' 'fm_backend_orca_send_key: refuses Escape instead of mapping it to interrupt'
+ok - fm_backend_orca_send_key: refuses Escape instead of mapping it to interrupt
++1328: test_kill_is_best_effort_close
++341: orca_case kill
++47: CASE_DIR=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/kill
++48: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/kill/responses
++49: LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/kill/log
++50: RESP=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/kill/responses
++51: :
+++52: make_orca_fakebin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/kill
+++12: local fb=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/kill/fakebin
+++13: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/kill/fakebin
+++14: cat
+++42: chmod +x /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/kill/fakebin/orca
+++43: printf '%s\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/kill/fakebin
++52: FB=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/kill/fakebin
++342: printf '1\n'
++343: PATH=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/kill/fakebin:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/sz/.codex/tmp/arg0/codex-arg0IprVJc:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/Users/sz/go/bin:/Users/sz/.cargo/bin:/Users/sz/bin:/usr/local/sbin
++343: FM_ORCA_LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/kill/log
++343: FM_ORCA_RESPONSES=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/kill/responses
++343: bash -c '. "$0/bin/backends/orca.sh"; fm_backend_orca_kill term-123' /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
++345: expect_code 0 0 'kill should stay best-effort when Orca close fails'
++292: local expected=0 actual=0 'label=kill should stay best-effort when Orca close fails'
++293: '[' 0 = 0 ']'
+++346: cat /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/kill/log
++346: assert_contains $'orca\037terminal\037close\037--terminal\037term-123\037--json' $'orca\037terminal\037close\037--terminal\037term-123\037--json' 'kill did not call orca terminal close'
++276: case "$1" in
++277: :
++348: pass 'fm_backend_orca_kill: calls terminal close and stays best-effort'
++51: printf 'ok - %s\n' 'fm_backend_orca_kill: calls terminal close and stays best-effort'
+ok - fm_backend_orca_kill: calls terminal close and stays best-effort
++1329: test_remove_worktree_refuses_empty_id
++352: local out status
++353: orca_case remove-empty
++47: CASE_DIR=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/remove-empty
++48: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/remove-empty/responses
++49: LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/remove-empty/log
++50: RESP=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/remove-empty/responses
++51: :
+++52: make_orca_fakebin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/remove-empty
+++12: local fb=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/remove-empty/fakebin
+++13: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/remove-empty/fakebin
+++14: cat
+++42: chmod +x /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/remove-empty/fakebin/orca
+++43: printf '%s\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/remove-empty/fakebin
++52: FB=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/remove-empty/fakebin
+++355: PATH=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/remove-empty/fakebin:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/sz/.codex/tmp/arg0/codex-arg0IprVJc:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/Users/sz/go/bin:/Users/sz/.cargo/bin:/Users/sz/bin:/usr/local/sbin
+++355: FM_ORCA_LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/remove-empty/log
+++355: FM_ORCA_RESPONSES=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/remove-empty/responses
+++355: bash -c '. "$0/bin/backends/orca.sh"; fm_backend_orca_remove_worktree ""' /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
++355: out='error: missing Orca worktree id; cannot remove worktree'
++356: status=1
++357: '[' 1 -ne 0 ']'
++358: assert_contains 'error: missing Orca worktree id; cannot remove worktree' 'missing Orca worktree id' 'remove_worktree did not explain the missing id'
++276: case "$1" in
++277: :
++359: '[' '!' -s /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/remove-empty/log ']'
++360: pass 'fm_backend_orca_remove_worktree: refuses empty worktree ids'
++51: printf 'ok - %s\n' 'fm_backend_orca_remove_worktree: refuses empty worktree ids'
+ok - fm_backend_orca_remove_worktree: refuses empty worktree ids
++1330: test_remove_worktree_rejects_orca_error_json
++364: local out status
++365: orca_case remove-error-json
++47: CASE_DIR=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/remove-error-json
++48: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/remove-error-json/responses
++49: LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/remove-error-json/log
++50: RESP=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/remove-error-json/responses
++51: :
+++52: make_orca_fakebin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/remove-error-json
+++12: local fb=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/remove-error-json/fakebin
+++13: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/remove-error-json/fakebin
+++14: cat
+++42: chmod +x /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/remove-error-json/fakebin/orca
+++43: printf '%s\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/remove-error-json/fakebin
++52: FB=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/remove-error-json/fakebin
++366: printf '{"ok":false,"error":{"code":"worktree_not_found","message":"worktree not found"}}\n'
+++368: PATH=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/remove-error-json/fakebin:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/sz/.codex/tmp/arg0/codex-arg0IprVJc:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/Users/sz/go/bin:/Users/sz/.cargo/bin:/Users/sz/bin:/usr/local/sbin
+++368: FM_ORCA_LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/remove-error-json/log
+++368: FM_ORCA_RESPONSES=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/remove-error-json/responses
+++368: bash -c '. "$0/bin/backends/orca.sh"; fm_backend_orca_remove_worktree wt-gone' /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
++368: out='worktree not found'
++369: status=2
++370: '[' 2 -ne 0 ']'
++371: assert_contains 'worktree not found' 'worktree not found' 'remove_worktree should surface the Orca removal error'
++276: case "$1" in
++277: :
++372: pass 'fm_backend_orca_remove_worktree: fails closed on ok:false JSON'
++51: printf 'ok - %s\n' 'fm_backend_orca_remove_worktree: fails closed on ok:false JSON'
+ok - fm_backend_orca_remove_worktree: fails closed on ok:false JSON
++1331: test_worktree_path_resolves_id
++376: local out
++377: orca_case path-resolve
++47: CASE_DIR=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/path-resolve
++48: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/path-resolve/responses
++49: LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/path-resolve/log
++50: RESP=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/path-resolve/responses
++51: :
+++52: make_orca_fakebin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/path-resolve
+++12: local fb=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/path-resolve/fakebin
+++13: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/path-resolve/fakebin
+++14: cat
+++42: chmod +x /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/path-resolve/fakebin/orca
+++43: printf '%s\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/path-resolve/fakebin
++52: FB=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/path-resolve/fakebin
++378: printf '{"ok":true,"result":{"worktree":{"id":"wt-123","path":"/tmp/orca-wt"}}}\n'
+++380: PATH=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/path-resolve/fakebin:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/sz/.codex/tmp/arg0/codex-arg0IprVJc:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/Users/sz/go/bin:/Users/sz/.cargo/bin:/Users/sz/bin:/usr/local/sbin
+++380: FM_ORCA_LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/path-resolve/log
+++380: FM_ORCA_RESPONSES=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/path-resolve/responses
+++380: bash -c '. "$0/bin/backends/orca.sh"; fm_backend_orca_worktree_path wt-123' /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
++380: out=/tmp/orca-wt
++381: '[' /tmp/orca-wt = /tmp/orca-wt ']'
+++382: cat /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/path-resolve/log
++382: assert_contains $'orca\037worktree\037show\037--worktree\037id:wt-123\037--json' $'orca\037worktree\037show\037--worktree\037id:wt-123\037--json' 'worktree path helper did not call orca worktree show'
++276: case "$1" in
++277: :
++384: pass 'fm_backend_orca_worktree_path: resolves an Orca worktree id to its path'
++51: printf 'ok - %s\n' 'fm_backend_orca_worktree_path: resolves an Orca worktree id to its path'
+ok - fm_backend_orca_worktree_path: resolves an Orca worktree id to its path
++1332: test_dispatcher_sources_orca_and_routes_primitives
++1301: local out
++1302: orca_case dispatch
++47: CASE_DIR=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/dispatch
++48: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/dispatch/responses
++49: LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/dispatch/log
++50: RESP=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/dispatch/responses
++51: :
+++52: make_orca_fakebin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/dispatch
+++12: local fb=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/dispatch/fakebin
+++13: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/dispatch/fakebin
+++14: cat
+++42: chmod +x /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/dispatch/fakebin/orca
+++43: printf '%s\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/dispatch/fakebin
++52: FB=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/dispatch/fakebin
++1303: printf '{"result":{"terminal":{"tail":["via dispatch"]}}}\n'
+++1305: PATH=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/dispatch/fakebin:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/sz/.codex/tmp/arg0/codex-arg0IprVJc:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/Users/sz/go/bin:/Users/sz/.cargo/bin:/Users/sz/bin:/usr/local/sbin
+++1305: FM_ORCA_LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/dispatch/log
+++1305: FM_ORCA_RESPONSES=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/dispatch/responses
+++1305: bash -c '. "$0/bin/fm-backend.sh"; fm_backend_validate orca; fm_backend_capture orca term-123 9' /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
++1305: out='via dispatch'
++1306: '[' 'via dispatch' = 'via dispatch' ']'
++1307: pass 'fm-backend dispatcher: accepts orca and routes capture through bin/backends/orca.sh'
++51: printf 'ok - %s\n' 'fm-backend dispatcher: accepts orca and routes capture through bin/backends/orca.sh'
+ok - fm-backend dispatcher: accepts orca and routes capture through bin/backends/orca.sh
++1333: test_json_get_ignores_undocumented_terminal_id_shapes
++388: local out status wt_id wt_path term
++389: orca_case parser-pruned-terminal-shapes
++47: CASE_DIR=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/parser-pruned-terminal-shapes
++48: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/parser-pruned-terminal-shapes/responses
++49: LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/parser-pruned-terminal-shapes/log
++50: RESP=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/parser-pruned-terminal-shapes/responses
++51: :
+++52: make_orca_fakebin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/parser-pruned-terminal-shapes
+++12: local fb=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/parser-pruned-terminal-shapes/fakebin
+++13: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/parser-pruned-terminal-shapes/fakebin
+++14: cat
+++42: chmod +x /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/parser-pruned-terminal-shapes/fakebin/orca
+++43: printf '%s\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/parser-pruned-terminal-shapes/fakebin
++52: FB=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/parser-pruned-terminal-shapes/fakebin
++391: set +e
+++393: printf '{"ok":true,"result":{"id":"term-root-id"}}\n'
+++393: bash -c '. "$0/bin/backends/orca.sh"; fm_backend_orca_json_get terminal-handle' /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
++393: out=
++394: status=1
++395: set +e
++396: '[' 1 -ne 0 ']'
++398: printf '1\n'
++399: printf '{"ok":true,"result":{"repo":{"id":"repo-123"}}}\n'
++400: printf '{"ok":true,"result":{"worktree":{"id":"wt-123","path":"/tmp/orca-wt","terminal":{"handle":"term-nested"}}}}\n'
+++402: PATH=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/parser-pruned-terminal-shapes/fakebin:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/sz/.codex/tmp/arg0/codex-arg0IprVJc:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/Users/sz/go/bin:/Users/sz/.cargo/bin:/Users/sz/bin:/usr/local/sbin
+++402: FM_ORCA_LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/parser-pruned-terminal-shapes/log
+++402: FM_ORCA_RESPONSES=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/parser-pruned-terminal-shapes/responses
+++402: bash -c '. "$0/bin/backends/orca.sh"; fm_backend_orca_worktree_create /repo/path fm-task' /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
++402: out='wt-123	/tmp/orca-wt'
++403: wt_id=wt-123
++404: wt_path=/tmp/orca-wt
++405: term=/tmp/orca-wt
++406: wt_path=/tmp/orca-wt
++407: '[' wt-123 = wt-123 ']'
++408: '[' /tmp/orca-wt = /tmp/orca-wt ']'
++409: '[' /tmp/orca-wt = /tmp/orca-wt ']'
++410: pass 'fm_backend_orca_json_get: ignores undocumented terminal id shapes'
++51: printf 'ok - %s\n' 'fm_backend_orca_json_get: ignores undocumented terminal id shapes'
+ok - fm_backend_orca_json_get: ignores undocumented terminal id shapes
++1334: test_worktree_and_terminal_helpers_parse_json
++414: local out wt_id wt_path term
++415: orca_case lifecycle-helpers
++47: CASE_DIR=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/lifecycle-helpers
++48: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/lifecycle-helpers/responses
++49: LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/lifecycle-helpers/log
++50: RESP=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/lifecycle-helpers/responses
++51: :
+++52: make_orca_fakebin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/lifecycle-helpers
+++12: local fb=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/lifecycle-helpers/fakebin
+++13: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/lifecycle-helpers/fakebin
+++14: cat
+++42: chmod +x /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/lifecycle-helpers/fakebin/orca
+++43: printf '%s\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/lifecycle-helpers/fakebin
++52: FB=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/lifecycle-helpers/fakebin
++416: printf '1\n'
++417: printf '{"ok":true,"result":{"repo":{"id":"repo-123"}}}\n'
++418: printf '{"ok":true,"result":{"worktree":{"id":"wt-123","path":"/tmp/orca-wt"}}}\n'
++419: printf '{"ok":true,"result":{"terminal":{"handle":"term-123"}}}\n'
+++421: PATH=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/lifecycle-helpers/fakebin:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/sz/.codex/tmp/arg0/codex-arg0IprVJc:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/Users/sz/go/bin:/Users/sz/.cargo/bin:/Users/sz/bin:/usr/local/sbin
+++421: FM_ORCA_LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/lifecycle-helpers/log
+++421: FM_ORCA_RESPONSES=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/lifecycle-helpers/responses
+++421: bash -c '. "$0/bin/backends/orca.sh"; fm_backend_orca_worktree_create /repo/path fm-task' /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
++421: out='wt-123	/tmp/orca-wt'
++422: wt_id=wt-123
++423: wt_path=/tmp/orca-wt
++424: '[' wt-123 = wt-123 ']'
++425: '[' /tmp/orca-wt = /tmp/orca-wt ']'
+++427: PATH=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/lifecycle-helpers/fakebin:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/sz/.codex/tmp/arg0/codex-arg0IprVJc:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/Users/sz/go/bin:/Users/sz/.cargo/bin:/Users/sz/bin:/usr/local/sbin
+++427: FM_ORCA_LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/lifecycle-helpers/log
+++427: FM_ORCA_RESPONSES=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/lifecycle-helpers/responses
+++427: bash -c '. "$0/bin/backends/orca.sh"; fm_backend_orca_terminal_create wt-123 fm-task' /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
++427: term=term-123
++428: '[' term-123 = term-123 ']'
+++429: cat /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/lifecycle-helpers/log
++429: assert_contains 'orcareposhow--repopath:/repo/path--json
+orcarepoadd--path/repo/path--json
+orcaworktreecreate--repoid:repo-123--namefm-task--no-parent--setupskip--json
+orcaterminalcreate--worktreeid:wt-123--titlefm-task--json' $'orca\037repo\037show\037--repo\037path:/repo/path\037--json' 'worktree helper should first check repo registration'
++276: case "$1" in
++277: :
+++431: cat /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/lifecycle-helpers/log
++431: assert_contains 'orcareposhow--repopath:/repo/path--json
+orcarepoadd--path/repo/path--json
+orcaworktreecreate--repoid:repo-123--namefm-task--no-parent--setupskip--json
+orcaterminalcreate--worktreeid:wt-123--titlefm-task--json' $'orca\037repo\037add\037--path\037/repo/path\037--json' 'worktree helper should register an absent repo'
++276: case "$1" in
++277: :
+++433: cat /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/lifecycle-helpers/log
++433: assert_contains 'orcareposhow--repopath:/repo/path--json
+orcarepoadd--path/repo/path--json
+orcaworktreecreate--repoid:repo-123--namefm-task--no-parent--setupskip--json
+orcaterminalcreate--worktreeid:wt-123--titlefm-task--json' $'orca\037worktree\037create\037--repo\037id:repo-123\037--name\037fm-task\037--no-parent\037--setup\037skip\037--json' 'worktree helper did not create an independent no-hook worktree'
++276: case "$1" in
++277: :
+++435: cat /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/lifecycle-helpers/log
++435: assert_contains 'orcareposhow--repopath:/repo/path--json
+orcarepoadd--path/repo/path--json
+orcaworktreecreate--repoid:repo-123--namefm-task--no-parent--setupskip--json
+orcaterminalcreate--worktreeid:wt-123--titlefm-task--json' $'orca\037terminal\037create\037--worktree\037id:wt-123\037--title\037fm-task\037--json' 'terminal helper did not create a titled terminal for the worktree'
++276: case "$1" in
++277: :
++437: pass 'Orca lifecycle helpers: register repo, create worktree, create terminal, parse stable ids'
++51: printf 'ok - %s\n' 'Orca lifecycle helpers: register repo, create worktree, create terminal, parse stable ids'
+ok - Orca lifecycle helpers: register repo, create worktree, create terminal, parse stable ids
++1335: test_worktree_create_removes_worktree_when_path_missing
++441: local out status
++442: orca_case lifecycle-missing-path
++47: CASE_DIR=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/lifecycle-missing-path
++48: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/lifecycle-missing-path/responses
++49: LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/lifecycle-missing-path/log
++50: RESP=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/lifecycle-missing-path/responses
++51: :
+++52: make_orca_fakebin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/lifecycle-missing-path
+++12: local fb=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/lifecycle-missing-path/fakebin
+++13: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/lifecycle-missing-path/fakebin
+++14: cat
+++42: chmod +x /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/lifecycle-missing-path/fakebin/orca
+++43: printf '%s\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/lifecycle-missing-path/fakebin
++52: FB=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/lifecycle-missing-path/fakebin
++443: printf '1\n'
++444: printf '{"ok":true,"result":{"repo":{"id":"repo-no-path"}}}\n'
++445: printf '{"ok":true,"result":{"worktree":{"id":"wt-no-path"},"terminal":{"handle":"term-no-path"}}}\n'
+++447: PATH=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/lifecycle-missing-path/fakebin:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/sz/.codex/tmp/arg0/codex-arg0IprVJc:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/Users/sz/go/bin:/Users/sz/.cargo/bin:/Users/sz/bin:/usr/local/sbin
+++447: FM_ORCA_LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/lifecycle-missing-path/log
+++447: FM_ORCA_RESPONSES=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/lifecycle-missing-path/responses
+++447: bash -c '. "$0/bin/backends/orca.sh"; fm_backend_orca_worktree_create /repo/path fm-task' /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
++447: out='error: orca worktree create did not return a path for fm-task'
++448: status=1
++449: '[' 1 -ne 0 ']'
++450: assert_contains 'error: orca worktree create did not return a path for fm-task' 'orca worktree create did not return a path for fm-task' 'worktree helper did not explain the missing path'
++276: case "$1" in
++277: :
+++452: cat /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/lifecycle-missing-path/log
++452: assert_contains 'orcareposhow--repopath:/repo/path--json
+orcarepoadd--path/repo/path--json
+orcaworktreecreate--repoid:repo-no-path--namefm-task--no-parent--setupskip--json
+orcaterminalclose--terminalterm-no-path--json
+orcaworktreerm--worktreeid:wt-no-path--force--json' $'orca\037terminal\037close\037--terminal\037term-no-path\037--json' 'worktree helper did not close the implicit terminal when path parsing failed'
++276: case "$1" in
++277: :
+++454: cat /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/lifecycle-missing-path/log
++454: assert_contains 'orcareposhow--repopath:/repo/path--json
+orcarepoadd--path/repo/path--json
+orcaworktreecreate--repoid:repo-no-path--namefm-task--no-parent--setupskip--json
+orcaterminalclose--terminalterm-no-path--json
+orcaworktreerm--worktreeid:wt-no-path--force--json' $'orca\037worktree\037rm\037--worktree\037id:wt-no-path\037--force\037--json' 'worktree helper did not remove the pathless Orca worktree'
++276: case "$1" in
++277: :
++456: pass 'fm_backend_orca_worktree_create: removes created worktree when path is missing'
++51: printf 'ok - %s\n' 'fm_backend_orca_worktree_create: removes created worktree when path is missing'
+ok - fm_backend_orca_worktree_create: removes created worktree when path is missing
++1336: test_spawn_preserves_orca_metadata_when_pathless_worktree_cleanup_fails
++460: local proj data state config id out status
++461: id=orcapathlessz6
++462: proj=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-project
++463: data=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-data
++464: state=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-state
++465: config=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-config
++466: fm_git_init_commit /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-project
++212: local dir=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-project
++213: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-project
++214: git -C /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-project init -q
+++215: basename /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-project
++215: printf '# %s\n' pathless-cleanup-project
++216: git -C /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-project add README.md
++217: git -C /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-project -c 'user.name=Firstmate Tests' -c user.email=tests@example.invalid commit -qm initial
++467: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-data/orcapathlessz6 /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-state /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-config
++468: printf 'brief\n'
++469: touch /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-state/.last-watcher-beat
++470: orca_case pathless-cleanup-fail
++47: CASE_DIR=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-fail
++48: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-fail/responses
++49: LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-fail/log
++50: RESP=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-fail/responses
++51: :
+++52: make_orca_fakebin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-fail
+++12: local fb=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-fail/fakebin
+++13: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-fail/fakebin
+++14: cat
+++42: chmod +x /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-fail/fakebin/orca
+++43: printf '%s\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-fail/fakebin
++52: FB=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-fail/fakebin
++471: printf '1\n'
++472: printf '{"ok":true,"result":{"repo":{"id":"repo-pathless-cleanup"}}}\n'
++473: printf '{"ok":true,"result":{"worktree":{"id":"wt-pathless-cleanup"}}}\n'
++474: printf '{"ok":false,"error":{"code":"worktree_not_removed","message":"worktree not removed"}}\n'
++475: printf '{"ok":false,"error":{"code":"worktree_not_removed","message":"worktree not removed"}}\n'
+++479: PATH=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-fail/fakebin:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/sz/.codex/tmp/arg0/codex-arg0IprVJc:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/Users/sz/go/bin:/Users/sz/.cargo/bin:/Users/sz/bin:/usr/local/sbin
+++479: FM_ORCA_LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-fail/log
+++479: FM_ORCA_RESPONSES=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-fail/responses
+++479: FM_ROOT_OVERRIDE=/Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
+++479: FM_STATE_OVERRIDE=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-state
+++479: FM_DATA_OVERRIDE=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-data
+++479: FM_CONFIG_OVERRIDE=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-config
+++479: FM_PROJECTS_OVERRIDE=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/unused-projects
+++479: FM_SPAWN_NO_GUARD=1
+++479: /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7/bin/fm-spawn.sh orcapathlessz6 /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-project claude --mode no-mistakes --yolo off --backend orca
++479: out='warning: /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-data/orcapathlessz6/brief.md records no delivery contract line (scaffolded before ship briefs recorded one); launching on the explicit --mode no-mistakes - confirm its definition of done matches
+error: orca worktree create did not return a path for fm-orcapathlessz6
+worktree not removed'
++480: status=1
++481: '[' 1 -ne 0 ']'
++482: assert_contains 'warning: /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-data/orcapathlessz6/brief.md records no delivery contract line (scaffolded before ship briefs recorded one); launching on the explicit --mode no-mistakes - confirm its definition of done matches
+error: orca worktree create did not return a path for fm-orcapathlessz6
+worktree not removed' 'orca worktree create did not return a path' 'pathless worktree failure should explain the missing path'
++276: case "$1" in
++277: :
+++484: cat /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-fail/log
++484: assert_contains 'orcastatus--json
+orcareposhow--repopath:/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-backend-orca-tests.oBACPj/pathless-cleanup-project--json
+orcarepoadd--path/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-backend-orca-tests.oBACPj/pathless-cleanup-project--json
+orcaworktreecreate--repoid:repo-pathless-cleanup--namefm-orcapathlessz6--no-parent--setupskip--json
+orcaworktreerm--worktreeid:wt-pathless-cleanup--force--json
+orcaworktreerm--worktreeid:wt-pathless-cleanup--force--json' $'orca\037worktree\037rm\037--worktree\037id:wt-pathless-cleanup\037--force\037--json' 'pathless cleanup should attempt helper-backed worktree removal'
++276: case "$1" in
++277: :
++486: assert_present /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-state/orcapathlessz6.meta 'failed pathless cleanup should preserve metadata'
++314: '[' -e /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-state/orcapathlessz6.meta ']'
++487: assert_grep window=fm-orcapathlessz6 /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-state/orcapathlessz6.meta 'preserved pathless metadata missing stable window alias'
++299: grep -F -- window=fm-orcapathlessz6 /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-state/orcapathlessz6.meta
++488: assert_grep backend=orca /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-state/orcapathlessz6.meta 'preserved pathless metadata missing backend=orca'
++299: grep -F -- backend=orca /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-state/orcapathlessz6.meta
++489: assert_grep orca_worktree_id=wt-pathless-cleanup /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-state/orcapathlessz6.meta 'preserved pathless metadata missing Orca worktree id'
++299: grep -F -- orca_worktree_id=wt-pathless-cleanup /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-state/orcapathlessz6.meta
++490: assert_no_grep terminal= /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-state/orcapathlessz6.meta 'preserved pathless metadata should not invent a terminal handle'
++304: grep -F -- terminal= /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/pathless-cleanup-state/orcapathlessz6.meta
++491: pass 'fm-spawn.sh --backend orca: preserves metadata when pathless cleanup fails'
++51: printf 'ok - %s\n' 'fm-spawn.sh --backend orca: preserves metadata when pathless cleanup fails'
+ok - fm-spawn.sh --backend orca: preserves metadata when pathless cleanup fails
++1337: test_spawn_writes_orca_metadata_and_launches_harness
++495: local proj wt data state config id out log
++496: id=orcaspawnz1
++497: proj=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-project
++498: wt=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-wt
++499: data=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-data
++500: state=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-state
++501: config=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-config
++502: fm_git_worktree /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-project /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-wt fm/orcaspawnz1
++232: local repo=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-project worktree=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-wt branch=fm/orcaspawnz1
++233: fm_git_init_commit /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-project
++212: local dir=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-project
++213: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-project
++214: git -C /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-project init -q
+++215: basename /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-project
++215: printf '# %s\n' spawn-project
++216: git -C /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-project add README.md
++217: git -C /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-project -c 'user.name=Firstmate Tests' -c user.email=tests@example.invalid commit -qm initial
++234: fm_git_add_origin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-project /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-project.origin.git
++223: local repo=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-project remote=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-project.origin.git remote_abs
++224: git clone --quiet --bare /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-project /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-project.origin.git
+++225: cd /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-project.origin.git
+++225: pwd
++225: remote_abs=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-backend-orca-tests.oBACPj/spawn-project.origin.git
++226: git -C /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-project remote add origin file:///var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-backend-orca-tests.oBACPj/spawn-project.origin.git
++235: git -C /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-project worktree add --quiet -b fm/orcaspawnz1 /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-wt
++503: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-data/orcaspawnz1 /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-state /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-config
++504: printf 'brief\n'
++505: touch /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-state/.last-watcher-beat
++506: orca_case spawn
++47: CASE_DIR=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn
++48: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn/responses
++49: LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn/log
++50: RESP=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn/responses
++51: :
+++52: make_orca_fakebin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn
+++12: local fb=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn/fakebin
+++13: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn/fakebin
+++14: cat
+++42: chmod +x /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn/fakebin/orca
+++43: printf '%s\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn/fakebin
++52: FB=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn/fakebin
++507: log=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn/log
++508: printf '1\n'
++509: printf '{"ok":true,"result":{"repo":{"id":"repo-spawn"}}}\n'
++510: printf '{"ok":true,"result":{"worktree":{"id":"wt-spawn","path":"%s"},"terminal":{"handle":"term-spawn"}}}\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-wt
+++514: PATH=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn/fakebin:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/sz/.codex/tmp/arg0/codex-arg0IprVJc:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/Users/sz/go/bin:/Users/sz/.cargo/bin:/Users/sz/bin:/usr/local/sbin
+++514: FM_ORCA_LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn/log
+++514: FM_ORCA_RESPONSES=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn/responses
+++514: FM_ROOT_OVERRIDE=/Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
+++514: FM_STATE_OVERRIDE=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-state
+++514: FM_DATA_OVERRIDE=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-data
+++514: FM_CONFIG_OVERRIDE=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-config
+++514: FM_PROJECTS_OVERRIDE=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/unused-projects
+++514: FM_SPAWN_NO_GUARD=1
+++514: /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7/bin/fm-spawn.sh orcaspawnz1 /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-project claude --mode no-mistakes --yolo off --backend orca
++514: out='warning: /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-data/orcaspawnz1/brief.md records no delivery contract line (scaffolded before ship briefs recorded one); launching on the explicit --mode no-mistakes - confirm its definition of done matches
+spawned orcaspawnz1 harness=claude kind=ship mode=no-mistakes yolo=off window=fm-orcaspawnz1 worktree=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-wt'
++515: expect_code 0 0 'fm-spawn.sh --backend orca should succeed with fake Orca
+warning: /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-data/orcaspawnz1/brief.md records no delivery contract line (scaffolded before ship briefs recorded one); launching on the explicit --mode no-mistakes - confirm its definition of done matches
+spawned orcaspawnz1 harness=claude kind=ship mode=no-mistakes yolo=off window=fm-orcaspawnz1 worktree=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-wt'
++292: local expected=0 actual=0 'label=fm-spawn.sh --backend orca should succeed with fake Orca
+warning: /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-data/orcaspawnz1/brief.md records no delivery contract line (scaffolded before ship briefs recorded one); launching on the explicit --mode no-mistakes - confirm its definition of done matches
+spawned orcaspawnz1 harness=claude kind=ship mode=no-mistakes yolo=off window=fm-orcaspawnz1 worktree=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-wt'
++293: '[' 0 = 0 ']'
++516: assert_contains 'warning: /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-data/orcaspawnz1/brief.md records no delivery contract line (scaffolded before ship briefs recorded one); launching on the explicit --mode no-mistakes - confirm its definition of done matches
+spawned orcaspawnz1 harness=claude kind=ship mode=no-mistakes yolo=off window=fm-orcaspawnz1 worktree=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-wt' 'spawned orcaspawnz1 harness=claude kind=ship mode=no-mistakes yolo=off window=fm-orcaspawnz1 worktree=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-wt' 'spawn output missing Orca window/worktree summary'
++276: case "$1" in
++277: :
++518: assert_grep backend=orca /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-state/orcaspawnz1.meta 'meta missing backend=orca'
++299: grep -F -- backend=orca /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-state/orcaspawnz1.meta
++519: assert_grep window=fm-orcaspawnz1 /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-state/orcaspawnz1.meta 'meta missing stable Orca window alias'
++299: grep -F -- window=fm-orcaspawnz1 /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-state/orcaspawnz1.meta
++520: assert_grep terminal=term-spawn /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-state/orcaspawnz1.meta 'meta missing terminal handle'
++299: grep -F -- terminal=term-spawn /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-state/orcaspawnz1.meta
++521: assert_grep orca_worktree_id=wt-spawn /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-state/orcaspawnz1.meta 'meta missing Orca worktree id'
++299: grep -F -- orca_worktree_id=wt-spawn /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-state/orcaspawnz1.meta
++522: assert_grep worktree=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-wt /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-state/orcaspawnz1.meta 'meta missing Orca worktree path'
++299: grep -F -- worktree=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-wt /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-state/orcaspawnz1.meta
+++523: cat /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn/log
++523: assert_not_contains 'orcastatus--json
+orcareposhow--repopath:/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-backend-orca-tests.oBACPj/spawn-project--json
+orcarepoadd--path/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-backend-orca-tests.oBACPj/spawn-project--json
+orcaworktreecreate--repoid:repo-spawn--namefm-orcaspawnz1--no-parent--setupskip--json
+orcaterminalread--terminalterm-spawn--limit1--json
+orcaterminalread--terminalterm-spawn--limit1--json
+orcaterminalsend--terminalterm-spawn--textexport GOTMPDIR=/tmp/fm-orcaspawnz1/gotmp--enter--json
+orcaterminalsend--terminalterm-spawn--textenv -u CURSOR_AGENT -u CURSOR_INVOKED_AS CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION=false claude --dangerously-skip-permissions "$('\''/Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7/bin/fm-operational-input.sh'\'' encode launch-brief < '\''/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-data/orcaspawnz1/brief.md'\'')"--json
+orcaterminalsend--terminalterm-spawn--text--enter--json
+orcaterminalread--terminalterm-spawn--limit120--json' $'orca\037terminal\037create' 'spawn should reuse the implicit terminal returned by Orca worktree creation'
++284: case "$1" in
++286: :
+++525: cat /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn/log
++525: assert_contains 'orcastatus--json
+orcareposhow--repopath:/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-backend-orca-tests.oBACPj/spawn-project--json
+orcarepoadd--path/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-backend-orca-tests.oBACPj/spawn-project--json
+orcaworktreecreate--repoid:repo-spawn--namefm-orcaspawnz1--no-parent--setupskip--json
+orcaterminalread--terminalterm-spawn--limit1--json
+orcaterminalread--terminalterm-spawn--limit1--json
+orcaterminalsend--terminalterm-spawn--textexport GOTMPDIR=/tmp/fm-orcaspawnz1/gotmp--enter--json
+orcaterminalsend--terminalterm-spawn--textenv -u CURSOR_AGENT -u CURSOR_INVOKED_AS CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION=false claude --dangerously-skip-permissions "$('\''/Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7/bin/fm-operational-input.sh'\'' encode launch-brief < '\''/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-data/orcaspawnz1/brief.md'\'')"--json
+orcaterminalsend--terminalterm-spawn--text--enter--json
+orcaterminalread--terminalterm-spawn--limit120--json' 'orcaterminalsend--terminalterm-spawn--textexport GOTMPDIR=/tmp/fm-orcaspawnz1/gotmp--enter--json' 'spawn did not export GOTMPDIR through the Orca terminal'
++276: case "$1" in
++277: :
+++527: cat /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn/log
++527: assert_contains 'orcastatus--json
+orcareposhow--repopath:/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-backend-orca-tests.oBACPj/spawn-project--json
+orcarepoadd--path/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-backend-orca-tests.oBACPj/spawn-project--json
+orcaworktreecreate--repoid:repo-spawn--namefm-orcaspawnz1--no-parent--setupskip--json
+orcaterminalread--terminalterm-spawn--limit1--json
+orcaterminalread--terminalterm-spawn--limit1--json
+orcaterminalsend--terminalterm-spawn--textexport GOTMPDIR=/tmp/fm-orcaspawnz1/gotmp--enter--json
+orcaterminalsend--terminalterm-spawn--textenv -u CURSOR_AGENT -u CURSOR_INVOKED_AS CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION=false claude --dangerously-skip-permissions "$('\''/Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7/bin/fm-operational-input.sh'\'' encode launch-brief < '\''/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/spawn-data/orcaspawnz1/brief.md'\'')"--json
+orcaterminalsend--terminalterm-spawn--text--enter--json
+orcaterminalread--terminalterm-spawn--limit120--json' 'CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION=false claude --dangerously-skip-permissions' 'spawn did not send the selected harness launch command through Orca'
++276: case "$1" in
++277: :
++529: rm -rf /tmp/fm-orcaspawnz1
++530: pass 'fm-spawn.sh --backend orca: reuses implicit terminal, records metadata, launches harness'
++51: printf 'ok - %s\n' 'fm-spawn.sh --backend orca: reuses implicit terminal, records metadata, launches harness'
+ok - fm-spawn.sh --backend orca: reuses implicit terminal, records metadata, launches harness
++1338: test_spawn_refuses_orca_secondmate_before_home_mutation
++534: local home subhome data state config id out status
++535: id=orcasmz1
++536: home=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/secondmate-refusal-home
++537: subhome=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/secondmate-refusal-subhome
++538: data=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/secondmate-refusal-home/data
++539: state=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/secondmate-refusal-home/state
++540: config=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/secondmate-refusal-home/config
++541: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/secondmate-refusal-home/data /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/secondmate-refusal-home/state /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/secondmate-refusal-home/config /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/secondmate-refusal-subhome/bin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/secondmate-refusal-subhome/data /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/secondmate-refusal-subhome/state /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/secondmate-refusal-subhome/projects
++542: printf '%s\n' orcasmz1
++543: printf 'firstmate\n'
++544: printf 'claude\n'
++545: touch /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/secondmate-refusal-home/state/.last-watcher-beat
++546: set +e
+++549: FM_ROOT_OVERRIDE=/Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
+++549: FM_HOME=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/secondmate-refusal-home
+++549: FM_STATE_OVERRIDE=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/secondmate-refusal-home/state
+++549: FM_DATA_OVERRIDE=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/secondmate-refusal-home/data
+++549: FM_CONFIG_OVERRIDE=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/secondmate-refusal-home/config
+++549: FM_PROJECTS_OVERRIDE=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/secondmate-refusal-home/projects
+++549: FM_SPAWN_NO_GUARD=1
+++549: /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7/bin/fm-spawn.sh orcasmz1 /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/secondmate-refusal-subhome claude --backend orca --secondmate
++549: out='error: backend=orca does not support --secondmate spawns yet'
++550: status=1
++551: set +e
++552: '[' 1 -ne 0 ']'
++553: assert_contains 'error: backend=orca does not support --secondmate spawns yet' 'backend=orca does not support --secondmate spawns yet' 'orca secondmate refusal should happen at backend selection'
++276: case "$1" in
++277: :
++555: assert_absent /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/secondmate-refusal-subhome/config/crew-harness 'orca secondmate refusal should not propagate inherited local material into the secondmate home'
++309: '[' '!' -e /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/secondmate-refusal-subhome/config/crew-harness ']'
++557: pass 'fm-spawn.sh --backend orca --secondmate: refuses before secondmate-home mutation'
++51: printf 'ok - %s\n' 'fm-spawn.sh --backend orca --secondmate: refuses before secondmate-home mutation'
+ok - fm-spawn.sh --backend orca --secondmate: refuses before secondmate-home mutation
++1339: test_spawn_refuses_orca_when_runtime_not_ready
++561: local proj data state config id out status
++562: id=orcaruntimez6
++563: proj=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-down-project
++564: data=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-down-data
++565: state=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-down-state
++566: config=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-down-config
++567: fm_git_init_commit /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-down-project
++212: local dir=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-down-project
++213: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-down-project
++214: git -C /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-down-project init -q
+++215: basename /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-down-project
++215: printf '# %s\n' runtime-down-project
++216: git -C /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-down-project add README.md
++217: git -C /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-down-project -c 'user.name=Firstmate Tests' -c user.email=tests@example.invalid commit -qm initial
++568: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-down-data/orcaruntimez6 /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-down-state /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-down-config
++569: printf 'brief\n'
++570: touch /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-down-state/.last-watcher-beat
++571: orca_case runtime-down-spawn
++47: CASE_DIR=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-down-spawn
++48: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-down-spawn/responses
++49: LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-down-spawn/log
++50: RESP=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-down-spawn/responses
++51: :
+++52: make_orca_fakebin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-down-spawn
+++12: local fb=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-down-spawn/fakebin
+++13: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-down-spawn/fakebin
+++14: cat
+++42: chmod +x /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-down-spawn/fakebin/orca
+++43: printf '%s\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-down-spawn/fakebin
++52: FB=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-down-spawn/fakebin
++572: printf '{"ok":true,"result":{"runtime":{"reachable":false,"state":"starting"}}}\n'
+++576: PATH=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-down-spawn/fakebin:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/sz/.codex/tmp/arg0/codex-arg0IprVJc:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/Users/sz/go/bin:/Users/sz/.cargo/bin:/Users/sz/bin:/usr/local/sbin
+++576: FM_ORCA_LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-down-spawn/log
+++576: FM_ORCA_RESPONSES=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-down-spawn/responses
+++576: FM_ORCA_STATUS_RESPONSE=sequence
+++576: FM_ROOT_OVERRIDE=/Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
+++576: FM_STATE_OVERRIDE=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-down-state
+++576: FM_DATA_OVERRIDE=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-down-data
+++576: FM_CONFIG_OVERRIDE=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-down-config
+++576: FM_PROJECTS_OVERRIDE=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/unused-projects
+++576: FM_SPAWN_NO_GUARD=1
+++576: /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7/bin/fm-spawn.sh orcaruntimez6 /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-down-project claude --mode no-mistakes --yolo off --backend orca
++576: out='error: backend=orca requires a ready Orca runtime (reachable=false, state=starting)'
++577: status=1
++578: '[' 1 -ne 0 ']'
++579: assert_contains 'error: backend=orca requires a ready Orca runtime (reachable=false, state=starting)' 'requires a ready Orca runtime' 'runtime readiness refusal should explain the Orca requirement'
++276: case "$1" in
++277: :
++581: assert_absent /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-down-state/orcaruntimez6.meta 'runtime refusal must not record metadata'
++309: '[' '!' -e /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-down-state/orcaruntimez6.meta ']'
+++582: cat /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-down-spawn/log
++582: assert_contains $'orca\037status\037--json' $'orca\037status\037--json' 'spawn did not probe Orca runtime readiness'
++276: case "$1" in
++277: :
+++584: cat /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/runtime-down-spawn/log
++584: assert_not_contains $'orca\037status\037--json' $'orca\037repo' 'spawn should fail before repo/worktree creation when runtime is not ready'
++284: case "$1" in
++286: :
++586: pass 'fm-spawn.sh --backend orca: refuses before mutation when Orca runtime is not ready'
++51: printf 'ok - %s\n' 'fm-spawn.sh --backend orca: refuses before mutation when Orca runtime is not ready'
+ok - fm-spawn.sh --backend orca: refuses before mutation when Orca runtime is not ready
++1340: test_spawn_refuses_orca_nonisolated_worktree
++590: local proj data state config id out status
++591: id=orcabadwtz4
++592: proj=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn-project
++593: data=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn-data
++594: state=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn-state
++595: config=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn-config
++596: fm_git_init_commit /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn-project
++212: local dir=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn-project
++213: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn-project
++214: git -C /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn-project init -q
+++215: basename /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn-project
++215: printf '# %s\n' bad-spawn-project
++216: git -C /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn-project add README.md
++217: git -C /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn-project -c 'user.name=Firstmate Tests' -c user.email=tests@example.invalid commit -qm initial
++597: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn-data/orcabadwtz4 /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn-state /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn-config
++598: printf 'brief\n'
++599: touch /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn-state/.last-watcher-beat
++600: orca_case bad-spawn
++47: CASE_DIR=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn
++48: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn/responses
++49: LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn/log
++50: RESP=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn/responses
++51: :
+++52: make_orca_fakebin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn
+++12: local fb=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn/fakebin
+++13: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn/fakebin
+++14: cat
+++42: chmod +x /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn/fakebin/orca
+++43: printf '%s\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn/fakebin
++52: FB=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn/fakebin
++601: printf '1\n'
++602: printf '{"ok":true,"result":{"repo":{"id":"repo-bad"}}}\n'
++603: printf '{"ok":true,"result":{"worktree":{"id":"wt-bad","path":"%s"},"terminal":{"handle":"term-bad"}}}\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn-project
+++607: PATH=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn/fakebin:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/sz/.codex/tmp/arg0/codex-arg0IprVJc:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/Users/sz/go/bin:/Users/sz/.cargo/bin:/Users/sz/bin:/usr/local/sbin
+++607: FM_ORCA_LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn/log
+++607: FM_ORCA_RESPONSES=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn/responses
+++607: FM_ROOT_OVERRIDE=/Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
+++607: FM_STATE_OVERRIDE=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn-state
+++607: FM_DATA_OVERRIDE=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn-data
+++607: FM_CONFIG_OVERRIDE=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn-config
+++607: FM_PROJECTS_OVERRIDE=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/unused-projects
+++607: FM_SPAWN_NO_GUARD=1
+++607: /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7/bin/fm-spawn.sh orcabadwtz4 /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn-project claude --mode no-mistakes --yolo off --backend orca
++607: out='warning: /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn-data/orcabadwtz4/brief.md records no delivery contract line (scaffolded before ship briefs recorded one); launching on the explicit --mode no-mistakes - confirm its definition of done matches
+error: orca worktree create did not yield an isolated worktree (resolved '\''/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn-project'\''; worktree root '\''/private/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-backend-orca-tests.oBACPj/bad-spawn-project'\''; primary '\''/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-backend-orca-tests.oBACPj/bad-spawn-project'\''); refusing to launch to avoid tangling the primary checkout. Inspect target fm-orcabadwtz4'
++608: status=1
++609: expect_code 1 1 'fm-spawn.sh --backend orca should refuse a primary checkout worktree'
++292: local expected=1 actual=1 'label=fm-spawn.sh --backend orca should refuse a primary checkout worktree'
++293: '[' 1 = 1 ']'
++610: assert_contains 'warning: /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn-data/orcabadwtz4/brief.md records no delivery contract line (scaffolded before ship briefs recorded one); launching on the explicit --mode no-mistakes - confirm its definition of done matches
+error: orca worktree create did not yield an isolated worktree (resolved '\''/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn-project'\''; worktree root '\''/private/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-backend-orca-tests.oBACPj/bad-spawn-project'\''; primary '\''/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-backend-orca-tests.oBACPj/bad-spawn-project'\''); refusing to launch to avoid tangling the primary checkout. Inspect target fm-orcabadwtz4' 'orca worktree create did not yield an isolated worktree' 'Orca spawn should reuse the isolated-worktree guard'
++276: case "$1" in
++277: :
++612: assert_absent /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn-state/orcabadwtz4.meta 'aborted Orca spawn must not record meta'
++309: '[' '!' -e /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn-state/orcabadwtz4.meta ']'
+++613: cat /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn/log
++613: assert_not_contains 'orcastatus--json
+orcareposhow--repopath:/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-backend-orca-tests.oBACPj/bad-spawn-project--json
+orcarepoadd--path/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-backend-orca-tests.oBACPj/bad-spawn-project--json
+orcaworktreecreate--repoid:repo-bad--namefm-orcabadwtz4--no-parent--setupskip--json
+orcaterminalclose--terminalterm-bad--json
+orcaworktreerm--worktreeid:wt-bad--force--json' $'orca\037terminal\037create' 'Orca spawn should validate the worktree before creating a terminal'
++284: case "$1" in
++286: :
+++615: cat /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn/log
++615: assert_contains 'orcastatus--json
+orcareposhow--repopath:/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-backend-orca-tests.oBACPj/bad-spawn-project--json
+orcarepoadd--path/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-backend-orca-tests.oBACPj/bad-spawn-project--json
+orcaworktreecreate--repoid:repo-bad--namefm-orcabadwtz4--no-parent--setupskip--json
+orcaterminalclose--terminalterm-bad--json
+orcaworktreerm--worktreeid:wt-bad--force--json' $'orca\037terminal\037close\037--terminal\037term-bad\037--json' 'Orca spawn should close the implicit terminal after validation aborts'
++276: case "$1" in
++277: :
+++617: cat /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/bad-spawn/log
++617: assert_contains 'orcastatus--json
+orcareposhow--repopath:/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-backend-orca-tests.oBACPj/bad-spawn-project--json
+orcarepoadd--path/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-backend-orca-tests.oBACPj/bad-spawn-project--json
+orcaworktreecreate--repoid:repo-bad--namefm-orcabadwtz4--no-parent--setupskip--json
+orcaterminalclose--terminalterm-bad--json
+orcaworktreerm--worktreeid:wt-bad--force--json' $'orca\037worktree\037rm\037--worktree\037id:wt-bad\037--force\037--json' 'Orca spawn should remove the worktree after validation aborts'
++276: case "$1" in
++277: :
++619: pass 'fm-spawn.sh --backend orca: refuses non-isolated worktrees and closes implicit terminals'
++51: printf 'ok - %s\n' 'fm-spawn.sh --backend orca: refuses non-isolated worktrees and closes implicit terminals'
+ok - fm-spawn.sh --backend orca: refuses non-isolated worktrees and closes implicit terminals
++1341: test_spawn_removes_orca_worktree_when_terminal_create_fails
++623: local proj wt data state config id out status
++624: id=orcatermfailz8
++625: proj=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-project
++626: wt=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-wt
++627: data=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-data
++628: state=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-state
++629: config=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-config
++630: fm_git_worktree /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-project /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-wt fm/orcatermfailz8
++232: local repo=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-project worktree=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-wt branch=fm/orcatermfailz8
++233: fm_git_init_commit /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-project
++212: local dir=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-project
++213: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-project
++214: git -C /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-project init -q
+++215: basename /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-project
++215: printf '# %s\n' terminal-fail-project
++216: git -C /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-project add README.md
++217: git -C /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-project -c 'user.name=Firstmate Tests' -c user.email=tests@example.invalid commit -qm initial
++234: fm_git_add_origin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-project /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-project.origin.git
++223: local repo=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-project remote=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-project.origin.git remote_abs
++224: git clone --quiet --bare /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-project /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-project.origin.git
+++225: cd /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-project.origin.git
+++225: pwd
++225: remote_abs=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-backend-orca-tests.oBACPj/terminal-fail-project.origin.git
++226: git -C /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-project remote add origin file:///var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-backend-orca-tests.oBACPj/terminal-fail-project.origin.git
++235: git -C /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-project worktree add --quiet -b fm/orcatermfailz8 /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-wt
++631: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-data/orcatermfailz8 /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-state /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-config
++632: printf 'brief\n'
++633: touch /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-state/.last-watcher-beat
++634: orca_case terminal-fail
++47: CASE_DIR=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail
++48: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail/responses
++49: LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail/log
++50: RESP=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail/responses
++51: :
+++52: make_orca_fakebin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail
+++12: local fb=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail/fakebin
+++13: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail/fakebin
+++14: cat
+++42: chmod +x /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail/fakebin/orca
+++43: printf '%s\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail/fakebin
++52: FB=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail/fakebin
++635: printf '1\n'
++636: printf '{"ok":true,"result":{"repo":{"id":"repo-terminal-fail"}}}\n'
++637: printf '{"ok":true,"result":{"worktree":{"id":"wt-terminal-fail","path":"%s"}}}\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-wt
++638: printf '1\n'
+++642: PATH=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail/fakebin:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/sz/.codex/tmp/arg0/codex-arg0IprVJc:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/Users/sz/go/bin:/Users/sz/.cargo/bin:/Users/sz/bin:/usr/local/sbin
+++642: FM_ORCA_LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail/log
+++642: FM_ORCA_RESPONSES=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail/responses
+++642: FM_ROOT_OVERRIDE=/Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
+++642: FM_STATE_OVERRIDE=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-state
+++642: FM_DATA_OVERRIDE=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-data
+++642: FM_CONFIG_OVERRIDE=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-config
+++642: FM_PROJECTS_OVERRIDE=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/unused-projects
+++642: FM_SPAWN_NO_GUARD=1
+++642: /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7/bin/fm-spawn.sh orcatermfailz8 /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-project claude --mode no-mistakes --yolo off --backend orca
++642: out='warning: /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-data/orcatermfailz8/brief.md records no delivery contract line (scaffolded before ship briefs recorded one); launching on the explicit --mode no-mistakes - confirm its definition of done matches'
++643: status=1
++644: '[' 1 -ne 0 ']'
++645: assert_absent /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-state/orcatermfailz8.meta 'terminal-create abort should not record metadata after successful cleanup'
++309: '[' '!' -e /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail-state/orcatermfailz8.meta ']'
+++646: cat /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail/log
++646: assert_contains 'orcastatus--json
+orcareposhow--repopath:/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-backend-orca-tests.oBACPj/terminal-fail-project--json
+orcarepoadd--path/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-backend-orca-tests.oBACPj/terminal-fail-project--json
+orcaworktreecreate--repoid:repo-terminal-fail--namefm-orcatermfailz8--no-parent--setupskip--json
+orcaterminalcreate--worktreeid:wt-terminal-fail--titlefm-orcatermfailz8--json
+orcaworktreerm--worktreeid:wt-terminal-fail--force--json' $'orca\037terminal\037create\037--worktree\037id:wt-terminal-fail\037--title\037fm-orcatermfailz8\037--json' 'Orca spawn should attempt terminal creation before abort cleanup'
++276: case "$1" in
++277: :
+++648: cat /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail/log
++648: assert_contains 'orcastatus--json
+orcareposhow--repopath:/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-backend-orca-tests.oBACPj/terminal-fail-project--json
+orcarepoadd--path/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-backend-orca-tests.oBACPj/terminal-fail-project--json
+orcaworktreecreate--repoid:repo-terminal-fail--namefm-orcatermfailz8--no-parent--setupskip--json
+orcaterminalcreate--worktreeid:wt-terminal-fail--titlefm-orcatermfailz8--json
+orcaworktreerm--worktreeid:wt-terminal-fail--force--json' $'orca\037worktree\037rm\037--worktree\037id:wt-terminal-fail\037--force\037--json' 'Orca spawn should remove the worktree when terminal creation fails'
++276: case "$1" in
++277: :
+++650: cat /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/terminal-fail/log
++650: assert_not_contains 'orcastatus--json
+orcareposhow--repopath:/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-backend-orca-tests.oBACPj/terminal-fail-project--json
+orcarepoadd--path/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-backend-orca-tests.oBACPj/terminal-fail-project--json
+orcaworktreecreate--repoid:repo-terminal-fail--namefm-orcatermfailz8--no-parent--setupskip--json
+orcaterminalcreate--worktreeid:wt-terminal-fail--titlefm-orcatermfailz8--json
+orcaworktreerm--worktreeid:wt-terminal-fail--force--json' $'orca\037terminal\037close' 'Orca spawn should not close a terminal when no handle was recorded'
++284: case "$1" in
++286: :
++652: pass 'fm-spawn.sh --backend orca: removes worktree when terminal creation fails'
++51: printf 'ok - %s\n' 'fm-spawn.sh --backend orca: removes worktree when terminal creation fails'
+ok - fm-spawn.sh --backend orca: removes worktree when terminal creation fails
++1342: test_spawn_preserves_orca_metadata_when_abort_cleanup_fails
++656: local proj wt data state config id out status
++657: id=orcacleanupleakz0
++658: proj=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-project
++659: wt=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-wt
++660: data=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-data
++661: state=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-state
++662: config=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-config
++663: fm_git_worktree /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-project /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-wt fm/orcacleanupleakz0
++232: local repo=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-project worktree=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-wt branch=fm/orcacleanupleakz0
++233: fm_git_init_commit /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-project
++212: local dir=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-project
++213: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-project
++214: git -C /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-project init -q
+++215: basename /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-project
++215: printf '# %s\n' cleanup-fail-project
++216: git -C /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-project add README.md
++217: git -C /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-project -c 'user.name=Firstmate Tests' -c user.email=tests@example.invalid commit -qm initial
++234: fm_git_add_origin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-project /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-project.origin.git
++223: local repo=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-project remote=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-project.origin.git remote_abs
++224: git clone --quiet --bare /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-project /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-project.origin.git
+++225: cd /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-project.origin.git
+++225: pwd
++225: remote_abs=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-backend-orca-tests.oBACPj/cleanup-fail-project.origin.git
++226: git -C /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-project remote add origin file:///var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-backend-orca-tests.oBACPj/cleanup-fail-project.origin.git
++235: git -C /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-project worktree add --quiet -b fm/orcacleanupleakz0 /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-wt
++664: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-data/orcacleanupleakz0 /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-state /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-config
++665: printf 'brief\n'
++666: touch /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-state/.last-watcher-beat
++667: orca_case cleanup-fail
++47: CASE_DIR=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail
++48: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail/responses
++49: LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail/log
++50: RESP=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail/responses
++51: :
+++52: make_orca_fakebin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail
+++12: local fb=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail/fakebin
+++13: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail/fakebin
+++14: cat
+++42: chmod +x /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail/fakebin/orca
+++43: printf '%s\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail/fakebin
++52: FB=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail/fakebin
++668: printf '1\n'
++669: printf '{"ok":true,"result":{"repo":{"id":"repo-cleanup-fail"}}}\n'
++670: printf '{"ok":true,"result":{"worktree":{"id":"wt-cleanup-fail","path":"%s"}}}\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-wt
++671: printf '1\n'
++672: printf '1\n'
+++676: PATH=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail/fakebin:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/sz/.codex/tmp/arg0/codex-arg0IprVJc:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/Users/sz/go/bin:/Users/sz/.cargo/bin:/Users/sz/bin:/usr/local/sbin
+++676: FM_ORCA_LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail/log
+++676: FM_ORCA_RESPONSES=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail/responses
+++676: FM_ROOT_OVERRIDE=/Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
+++676: FM_STATE_OVERRIDE=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-state
+++676: FM_DATA_OVERRIDE=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-data
+++676: FM_CONFIG_OVERRIDE=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-config
+++676: FM_PROJECTS_OVERRIDE=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/unused-projects
+++676: FM_SPAWN_NO_GUARD=1
+++676: /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7/bin/fm-spawn.sh orcacleanupleakz0 /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-project claude --mode no-mistakes --yolo off --backend orca
++676: out='warning: /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-data/orcacleanupleakz0/brief.md records no delivery contract line (scaffolded before ship briefs recorded one); launching on the explicit --mode no-mistakes - confirm its definition of done matches'
++677: status=1
++678: '[' 1 -ne 0 ']'
+++679: cat /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail/log
++679: assert_contains 'orcastatus--json
+orcareposhow--repopath:/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-backend-orca-tests.oBACPj/cleanup-fail-project--json
+orcarepoadd--path/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-backend-orca-tests.oBACPj/cleanup-fail-project--json
+orcaworktreecreate--repoid:repo-cleanup-fail--namefm-orcacleanupleakz0--no-parent--setupskip--json
+orcaterminalcreate--worktreeid:wt-cleanup-fail--titlefm-orcacleanupleakz0--json
+orcaworktreerm--worktreeid:wt-cleanup-fail--force--json' $'orca\037worktree\037rm\037--worktree\037id:wt-cleanup-fail\037--force\037--json' 'Orca spawn should attempt helper cleanup before preserving metadata'
++276: case "$1" in
++277: :
++681: assert_present /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-state/orcacleanupleakz0.meta 'failed Orca abort cleanup should preserve metadata'
++314: '[' -e /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-state/orcacleanupleakz0.meta ']'
++682: assert_grep window=fm-orcacleanupleakz0 /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-state/orcacleanupleakz0.meta 'preserved metadata missing stable window alias'
++299: grep -F -- window=fm-orcacleanupleakz0 /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-state/orcacleanupleakz0.meta
++683: assert_grep backend=orca /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-state/orcacleanupleakz0.meta 'preserved metadata missing backend=orca'
++299: grep -F -- backend=orca /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-state/orcacleanupleakz0.meta
++684: assert_grep orca_worktree_id=wt-cleanup-fail /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-state/orcacleanupleakz0.meta 'preserved metadata missing Orca worktree id'
++299: grep -F -- orca_worktree_id=wt-cleanup-fail /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-state/orcacleanupleakz0.meta
++685: assert_no_grep terminal= /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-state/orcacleanupleakz0.meta 'preserved metadata should not invent a terminal handle'
++304: grep -F -- terminal= /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/cleanup-fail-state/orcacleanupleakz0.meta
++686: pass 'fm-spawn.sh --backend orca: preserves metadata when abort cleanup fails'
++51: printf 'ok - %s\n' 'fm-spawn.sh --backend orca: preserves metadata when abort cleanup fails'
+ok - fm-spawn.sh --backend orca: preserves metadata when abort cleanup fails
++1343: test_spawn_releases_orca_resources_when_metadata_write_fails
++690: local proj wt data state config id out status
++691: id=orcametafailz9
++692: proj=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail-project
++693: wt=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail-wt
++694: data=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail-data
++695: state=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail-state
++696: config=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail-config
++697: fm_git_worktree /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail-project /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail-wt fm/orcametafailz9
++232: local repo=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail-project worktree=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail-wt branch=fm/orcametafailz9
++233: fm_git_init_commit /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail-project
++212: local dir=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail-project
++213: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail-project
++214: git -C /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail-project init -q
+++215: basename /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail-project
++215: printf '# %s\n' meta-fail-project
++216: git -C /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail-project add README.md
++217: git -C /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail-project -c 'user.name=Firstmate Tests' -c user.email=tests@example.invalid commit -qm initial
++234: fm_git_add_origin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail-project /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail-project.origin.git
++223: local repo=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail-project remote=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail-project.origin.git remote_abs
++224: git clone --quiet --bare /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail-project /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail-project.origin.git
+++225: cd /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail-project.origin.git
+++225: pwd
++225: remote_abs=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-backend-orca-tests.oBACPj/meta-fail-project.origin.git
++226: git -C /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail-project remote add origin file:///var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T/fm-backend-orca-tests.oBACPj/meta-fail-project.origin.git
++235: git -C /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail-project worktree add --quiet -b fm/orcametafailz9 /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail-wt
++698: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail-data/orcametafailz9 /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail-state/orcametafailz9.meta /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail-config
++699: printf 'brief\n'
++700: orca_case meta-fail
++47: CASE_DIR=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail
++48: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail/responses
++49: LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail/log
++50: RESP=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail/responses
++51: :
+++52: make_orca_fakebin /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail
+++12: local fb=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail/fakebin
+++13: mkdir -p /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail/fakebin
+++14: cat
+++42: chmod +x /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail/fakebin/orca
+++43: printf '%s\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail/fakebin
++52: FB=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail/fakebin
++701: printf '1\n'
++702: printf '{"ok":true,"result":{"repo":{"id":"repo-meta-fail"}}}\n'
++703: printf '{"ok":true,"result":{"worktree":{"id":"wt-meta-fail","path":"%s"}}}\n' /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail-wt
++704: printf '{"ok":true,"result":{"terminal":{"handle":"term-meta-fail"}}}\n'
+++708: PATH=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail/fakebin:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/sz/.codex/tmp/arg0/codex-arg0IprVJc:/Users/sz/.nvm/versions/node/v24.14.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sz/.local/bin:/Users/sz/.nvm/versions/node/v24.14.1/bin:/Users/sz/.npm-global/bin:/Users/sz/go/bin:/Users/sz/.cargo/bin:/Users/sz/bin:/usr/local/sbin
+++708: FM_ORCA_LOG=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail/log
+++708: FM_ORCA_RESPONSES=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail/responses
+++708: FM_ROOT_OVERRIDE=/Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7
+++708: FM_STATE_OVERRIDE=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail-state
+++708: FM_DATA_OVERRIDE=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail-data
+++708: FM_CONFIG_OVERRIDE=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail-config
+++708: FM_PROJECTS_OVERRIDE=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/unused-projects
+++708: FM_SPAWN_NO_GUARD=1
+++708: /Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7/bin/fm-spawn.sh orcametafailz9 /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail-project claude --mode no-mistakes --yolo off --backend orca
++708: out='warning: /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail-data/orcametafailz9/brief.md records no delivery contract line (scaffolded before ship briefs recorded one); launching on the explicit --mode no-mistakes - confirm its definition of done matches
+/Users/sz/.no-mistakes/worktrees/849194184da1/01M18FBJQN5KYKYGMZ4GJB8KZ7/bin/fm-spawn.sh: line 2913: /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail-state/orcametafailz9.meta: Is a directory
+spawned orcametafailz9 harness=claude kind=ship mode=no-mistakes yolo=off window=fm-orcametafailz9 worktree=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj/meta-fail-wt'
++709: status=0
++710: '[' 0 -ne 0 ']'
++710: fail 'Orca spawn should fail when metadata cannot be written'
++46: printf 'not ok - %s\n' 'Orca spawn should fail when metadata cannot be written'
+not ok - Orca spawn should fail when metadata cannot be written
++47: exit 1
++47: fm_test_cleanup
++87: local d
++88: for d in '"${FM_TEST_CLEANUP_DIRS[@]:-}"'
++89: '[' -n '' ']'
++91: '[' -f /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//.fm-test-cleanup.66463.8593Nk ']'
++92: IFS=
++92: read -r d
++93: '[' -n /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj ']'
++93: rm -rf /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-backend-orca-tests.oBACPj
++92: IFS=
++92: read -r d
++95: rm -f /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//.fm-test-cleanup.66463.8593Nk

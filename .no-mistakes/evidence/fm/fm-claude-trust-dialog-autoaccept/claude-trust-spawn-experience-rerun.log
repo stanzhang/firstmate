@@ -1,0 +1,35 @@
+Claude workspace-trust spawn experience rerun
+Target commit: 475803bc822ca5d3064008af3252e5d4b9e15f20
+Interface exercised: bin/fm-spawn.sh through the repository's stateful tmux and Orca behavioral fixtures
+
+[Fresh repository, explicit project-scoped grant]
+fm-spawn output: spawned evidence-fresh-27097 harness=claude kind=ship mode=no-mistakes yolo=off window=firstmate:fm-evidence-fresh-27097 worktree=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-claude-harness.IZjbMc/evidence-fresh/wt
+dialog key sequence: Enter -> Down -> Enter
+final Claude screen state: processing
+persisted task authority: claude_trust=accept
+
+[Fresh repository, no project-scoped grant]
+supervisor status: blocked: backend=tmux task=evidence-unauthorized-27097 requires explicit project-scoped --accept-claude-trust authority before Firstmate may accept Claude's persistent workspace-trust dialog; worker left alive on firstmate:fm-evidence-unauthorized-27097
+dialog key sequence: Enter
+final Claude screen state: trust-no
+
+[Dialog cannot be cleared]
+fm-spawn exit: 1
+supervisor status: failed: claude's workspace-trust dialog could not be cleared
+final Claude screen state: trust-no
+
+[Orca backend lacks Down capability]
+fm-spawn output: blocked: backend=orca task=evidence-orca-27097 requires a human keystroke to clear Claude's workspace-trust dialog; select "Yes, I trust this folder" with Down, then press Enter; worker left alive on term-1
+supervisor status: blocked: backend=orca task=evidence-orca-27097 requires a human keystroke to clear Claude's workspace-trust dialog; select "Yes, I trust this folder" with Down, then press Enter; worker left alive on term-1
+Down attempted through Orca: no
+final Claude screen state: trust-no
+
+[Shared classifier executable states]
+scenario                 classifier_state
+cancel-focused           trust-unfocused
+yes-focused              trust-focused
+stale-scrollback         absent
+ordinary-composer        absent
+
+[Real Claude opt-in guard]
+skip: EVIDENCE_INCOMPLETE - isolated-profile authentication unavailable; Claude 2.1.251 (Claude Code) repository trust not verified here
