@@ -1,0 +1,10 @@
+scenario=committed-ready continuation plus a newer unread captain note
+queued 1788110102-NycUa5
+  pause validation until the captain reviews the route
+  firstmate will pick this up at its next check.
+first_drain_presented_captain_note=yes
+continuation_attempted_before_presentation_ack=no
+continuation_attempted_while_note_still_unread=no
+captain_note_acknowledged=yes
+post_ack_continuation_result=result=sent task=ship
+continuation_invocation_count=1

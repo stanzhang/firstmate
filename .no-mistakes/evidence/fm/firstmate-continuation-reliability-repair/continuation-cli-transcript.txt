@@ -1,0 +1,16 @@
+scenario=committed-ready no-mistakes ship with no attributed validation run
+committed_head=9df985d286258f14f33d68efc6bce6264cef367f
+receipt=done: committed 9df985d286258f14f33d68efc6bce6264cef367f [spawn-gen=g1] implementation committed and focused checks passed
+first_call=result=sent task=ship
+durable_record=001.msg
+record_schema=schema=fm-task-inbox.v1
+record_body_begin
+FIRSTMATE_DELIVERY schema=fm-delivery-continuation.v1 task=ship spawn_gen=g1 head=9df985d286258f14f33d68efc6bce6264cef367f delivery=5036994d9be53070
+Begin the already-authorized /no-mistakes validation flow now. Do not merge.
+record_body_end
+replay_call=result=already-delivered task=ship
+record_count_after_replay=1
+lease_left_behind=no
+acknowledged_replay_call=result=already-delivered task=ship
+pending_record_count=0
+handled_record_count=1
