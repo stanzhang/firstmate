@@ -1,0 +1,11 @@
+SCENARIO: Claude/Herdr operator runs start while a native-hosted daemon lock is already live
+fm-afk-launch: daemon already running; refreshed away-mode flag (no new terminal)
+away_flag=present
+terminal_record=absent
+buffer=pending escalation retained
+daemon_alive=yes
+
+MIGRATION STEP: stop the isolated native-hosted daemon
+fm-afk-launch: away mode stopped; daemon terminal torn down and .afk cleared
+away_flag_after_stop=absent
+daemon_lock_after_stop=absent

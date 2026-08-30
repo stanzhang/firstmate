@@ -1,0 +1,188 @@
+# Rendered operator guidance: AFK wedge diagnosis and Claude/Herdr route
+
+## docs/wedge-alarm.md
+
+
+  # Away-mode injection wedge alarm                                                                           
+                                                                                                              
+  The away-mode sub-supervisor (bin/fm-supervise-daemon.sh) buffers escalations and injects them into         
+  Firstmate's own pane.                                                                                       
+  When injection cannot confirm a submit past FM_MAX_DEFER_SECS, inject_wedge_alarm raises a loud, rate-      
+  limited alarm so the stall never stays invisible.                                                           
+  The active alert is pane-independent because a tmux status-line flash has no cross-backend equivalent and   
+  cannot reach an unattended captain reliably.                                                                
+  The durable marker and tmux flash remain as additional signals.                                             
+                                                                                                              
+  ## When a delivery stays buffered                                                                           
+                                                                                                              
+  Away-mode delivery requires an idle primary and an affirmatively empty composer.                            
+  pane_is_busy refuses a primary mid-turn, and fm_backend_composer_state refuses any composer verdict other   
+  than empty, so a digest cannot merge into active or uncertain input.                                        
+  If the primary remains continuously busy, buffered delivery starves by design rather than interrupting that 
+  turn.                                                                                                       
+  The overnight Claude/Herdr native-path incident recorded 2,063 consecutive inject deferred: supervisor pane 
+  busy (agent mid-turn) deferrals, one composer deferral, zero deliveries, and roughly eight hours of         
+  starvation while the primary was genuinely idle.                                                            
+  Target resolution was correct: with HERDR_SESSION unset, supervisor discovery composed                      
+  default:<HERDR_PANE_ID> as designed.                                                                        
+  Claude Stop auto-arm was not the source because it exits while state/.afk exists.                           
+  The busy guard queries Herdr native agent state before its harness-scoped rendered-footer fallback, and the 
+  observed 3 shells still running idle screen is not a Claude delivery busy signature.                        
+  Together, those observations support the inference that the native background job itself holds the target's 
+  native agent state working for its lifetime.                                                                
+  Under that inferred mechanism, same-target native hosting cannot deliver by construction.                   
+  That is a hosting limitation, not a reason to weaken the guard: on a fresh launch, use bin/fm-afk-launch.sh 
+  start so the daemon runs in its own non-visible workspace with an explicit target.                          
+  If the native-hosted daemon is already live, start only refreshes the away flag and cannot move it; after   
+  bin/fm-afk-launch.sh stop succeeds, run bin/fm-afk-launch.sh start, not start-native.                       
+  FM_MAX_DEFER_SECS bounds how long that deferral can remain silent: once the threshold is reached, it raises 
+  this alarm and preserves the buffered escalation.                                                           
+  Treat the alarm as a visible delivery failure, not as permission to override either guard.                  
+                                                                                                              
+  ## Channels                                                                                                 
+                                                                                                              
+  config/wedge-alarm is local and gitignored.                                                                 
+  It lists channel directives, one per non-empty, non-comment line, and every listed non-off channel fires    
+  best-effort.                                                                                                
+  FM_WEDGE_ALARM_CHANNEL overrides the file with one directive for focused testing.                           
+                                                                                                              
+  • off disables every active alert while retaining the durable marker and tmux flash.                        
+  • auto or default resolves to osascript on macOS.                                                           
+  Other platforms have no built-in OS channel, so configure command: when a durable marker alone is           
+  insufficient.                                                                                               
+
+
+## docs/herdr-backend.md — Away-mode supervisor support
+
+
+  ## Away-mode supervisor support                                                                             
+                                                                                                              
+  The away daemon supports tmux and Herdr supervisor panes only.                                              
+  It refuses Zellij, Orca, and cmux as supervisor backends rather than applying the wrong transport.          
+  For Herdr, target existence, native state, capture, composer state, and verified submit all route through   
+  the shared backend dispatcher and the explicit named-session CLI owner.                                     
+  The pane-independent max-defer alert is configured in wedge-alarm.md /wedge-alarm.md.                       
+                                                                                                              
+  The incident evidence supports the inference that Claude's native tracked background Bash leaves the        
+  supervised Claude pane's native agent state working for the daemon's lifetime.                              
+  The busy guard must defer in that shape, so native same-pane hosting cannot deliver an away digest for a    
+  Claude/Herdr primary.                                                                                       
+  On a fresh launch, run bin/fm-afk-launch.sh start from that primary instead.                                
+  It captures the captain pane first, creates a dedicated unfocused Herdr workspace, runs the daemon there    
+  with an explicit supervisor target and backend, records the exact daemon pane, and closes only that pane on 
+  stop.                                                                                                       
+  If a native-hosted daemon is already live, start only refreshes state/.afk and reports that no new terminal 
+  was created.                                                                                                
+  After bin/fm-afk-launch.sh stop succeeds, migrate it with bin/fm-afk-launch.sh start, never by launching    
+  start-native again.                                                                                         
+  Pi uses the same terminal-backed route because it has no native tracked background mechanism.               
+  Other native background mechanisms remain eligible only when they do not retain their supervisor target in a
+  busy state.                                                                                                 
+  It never splits the captain's active tab and never uses shell &.                                            
+  Recovery reconciles only the recorded exact id.                                                             
+                                                                                                              
+  On stop, the daemon receives termination while state/.afk still exists so its final flush can run, the      
+  recorded terminal is closed, and the AFK flag is removed last.                                              
+  A fresh entry clears stale transient escalation caches, while durable queue and task records remain         
+  authoritative.                                                                                              
+
+
+## .agents/skills/afk/SKILL.md — launcher routing
+
+
+  ## What it does                                                                                             
+                                                                                                              
+  1. **Enter the lifecycle through **bin/fm-afk-launch.sh**.**                                                
+  This owns the durable state write, session-scoped stale-artifact clearing,                                  
+  terminal record, and rollback.                                                                              
+  The flag survives a firstmate restart, so recovery re-enters afk when it is present.                        
+  2. **Ensure the sub-supervisor daemon is running as a tracked background process.**                         
+  Its hosting differs by harness.                                                                             
+  Pick the right path:                                                                                        
+      • **Claude on Herdr:** do not use the Claude native background Bash path.                               
+      On a fresh launch, run bin/fm-afk-launch.sh start; the terminal-backed launcher captures the captain    
+      target before creating its separate non-visible workspace and passes that target explicitly to the      
+      daemon.                                                                                                 
+      If a native-hosted daemon is already live, start only refreshes state/.afk and returns with no new      
+      terminal, so it cannot migrate that daemon.                                                             
+      After bin/fm-afk-launch.sh stop succeeds, enter again with bin/fm-afk-launch.sh start.                  
+      Do not follow the stop with start-native, which recreates the same unsupported same-target construction.
+      The incident evidence supports the inference that the native job keeps the supervised Claude pane's     
+      Herdr agent state working for the daemon's lifetime, so the busy guard correctly defers every injection.
+      • **Other harnesses WITH a native in-pane tracked-background tool** (for                                
+      example, Grok's background tool): first run                                                             
+      bin/fm-afk-launch.sh start-native, then run                                                             
+      FM_AFK_STATE_PREPARED=1 bin/fm-afk-start.sh through that native tool.                                   
+      This is a deliberate no-separate-terminal exception because the harness-hosted job creates no terminal  
+      or layout mutation, and a shell launcher cannot invoke a harness-native background tool.                
+      The launcher still owns lifecycle state and records the no-terminal mode, while the daemon inherits and 
+      auto-discovers the captain pane.                                                                        
+      If the native launch fails, run bin/fm-afk-launch.sh stop to roll back the prepared lifecycle.          
+      Do not wrap it in nohup ... & (Codex/herdr can reap fire-and-forget shell children after a tool call    
+      returns).                                                                                               
+      • **Harness WITHOUT one** (e.g. pi): run bin/fm-afk-launch.sh start. It is                              
+      the single owner of the daemon terminal: it creates a NON-VISIBLE tracked                               
+      terminal for the current backend (a herdr dedicated --no-focus workspace,                               
+      a detached tmux session), records its exact id, and passes the captain pane                             
+      in as FM_SUPERVISOR_TARGET so the daemon injects into the captain, not its                              
+      own new pane. **Never manufacture a terminal by splitting the**** captain's                             
+      ****active pane** (herdr pane split): a split co-tenants the tab and visibly                            
+      shrinks the captain's pane (docs/herdr-backend.md "Away-mode supervisor                                 
+      support").                                                                                              
+      Both paths share bin/fm-afk-start.sh as the daemon entry.                                               
+      The native path tells it that the launcher already prepared lifecycle state; the terminal-backed path   
+      lets the entry perform its existing state setup inside the new terminal.                                
+      It exits immediately if the identity-backed daemon lock already names a live process, otherwise it execs
+      bin/fm-supervise-daemon.sh in the foreground.                                                           
+      The daemon is **presence-gated**: it injects escalations only while                                     
+      state/.afk exists, and stays quiet otherwise.                                                           
+  3. **Do not separately arm **fm-watch.sh**.** The daemon manages the watcher as                             
+  its child; the singleton lock no-ops a stray arm harmlessly.                                                
+  4. **Acknowledge** in AGENTS.md section 9 language: "Captain, away mode is active; I will batch routine     
+  updates and surface only decisions, failures, credentials, or review-ready work until you return."          
+
+
+## .agents/skills/afk/SKILL.md — guard guarantees
+
+
+  ## Busy-guard and composer guard                                                                            
+                                                                                                              
+  The daemon never injects into an in-use pane. Two checks run before every                                   
+  injection, dispatched through bin/fm-backend.sh for the supervisor's own                                    
+  backend (tmux or herdr; see "Auto-discovered supervisor pane" below):                                       
+                                                                                                              
+  • **Primary-pane busy guard** - pane_is_busy trusts Herdr native busy when available, otherwise matches     
+  rendered output against only the detected primary harness's signature.                                      
+  This narrow delivery guard never classifies a recorded worker task and never uses a global union of vendor  
+  patterns.                                                                                                   
+  • **Composer-state guard** - inject_msg reads the full empty/pending/pending-unproven/unknown verdict from  
+  fm_backend_composer_state and injects only when it is affirmatively empty.                                  
+  Every other or future verdict defers, including an unreadable pane, ambiguous geometry, a blank unidentified
+  row, and a bare shell prompt left after the agent exits.                                                    
+  Each adapter contributes only capture and capability facts to the fleet-wide screen classifier in bin/fm-   
+  composer-lib.sh, which owns every shape and verdict.                                                        
+  It preserves proven idle composers as empty but requires a genuine container around shell glyphs; see       
+  docs/herdr-backend.md "Composer and injection safety" for the operator contract.                            
+  pane_input_pending is the tested fail-closed predicate for callers that need to know whether the composer is
+  unsafe: it treats every result except exact empty as pending.                                               
+                                                                                                              
+  A busy primary pane, or any composer verdict other than empty, defers the injection; the buffered escalation
+  survives in state/.subsuper-escalations and is retried on the next housekeeping tick.                       
+  In afk mode the composer guard is belt-and-suspenders (no human is typing), but it protects against the race
+  window between the captain returning and their message landing, a dead shell, and the daemon's own previous 
+  injection sitting unsent.                                                                                   
+                                                                                                              
+  **Max-defer escape (the daemon must never silently wedge).**                                                
+  If anything stays buffered past FM_MAX_DEFER_SECS (default 300), the daemon                                 
+  attempts one normal flush, which still requires an idle pane and an affirmatively empty composer.           
+  The alarm is defense in depth rather than a substitute for keeping every genuinely idle supported composer  
+  injectable.                                                                                                 
+  If that submit cannot be confirmed, it raises a loud, rate-limited wedge alarm:                             
+  an ERROR in the daemon log, a durable                                                                       
+  state/.subsuper-inject-wedged marker (surface it on the "while you were out"                                
+  catch-up if present), a tmux status-line flash when applicable, and a configurable backend-independent      
+  active alert.                                                                                               
+  docs/wedge-alarm.md owns the alert channel setup, and docs/verification/supervision.md "Wedge-alarm         
+  channels" owns active evidence.                                                                             
+  So a guard false-positive becomes a visible stall, never an unbounded silent no-op.                         
+

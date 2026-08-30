@@ -1,0 +1,10 @@
+base=debe4bfafa2ad52bd96f088a8d8ba418931e828f
+target=e9643c11170d9a72a07afdeea4ba0bb705f8f5b1
+bin/fm-afk-launch.sh executable_body_byte_identical=yes
+bin/fm-afk-start.sh executable_body_byte_identical=yes
+changed_paths:
+  .agents/skills/afk/SKILL.md
+  bin/fm-afk-launch.sh
+  bin/fm-afk-start.sh
+  docs/herdr-backend.md
+  docs/wedge-alarm.md
