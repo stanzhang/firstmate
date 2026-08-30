@@ -1,0 +1,4 @@
+cancel_focused: trust-unfocused (expected trust-unfocused)
+yes_focused: trust-focused (expected trust-focused)
+stale_focused_then_current_cancel: trust-unfocused (expected trust-unfocused)
+stale_dialog_above_active_footer: absent (expected absent)

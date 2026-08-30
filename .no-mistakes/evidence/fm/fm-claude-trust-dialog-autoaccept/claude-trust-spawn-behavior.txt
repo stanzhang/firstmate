@@ -1,0 +1,17 @@
+ok - fm-spawn: Claude trust acceptance requires explicit project-scoped authority
+ok - fm-spawn: Claude trust authority cannot broaden to another harness
+ok - fm-spawn: a pre-focused Claude trust choice cannot bypass authority
+ok - fm-spawn: an already-trusted claude spawn skips all dialog handling
+ok - fm-spawn: claude's trust dialog is navigated to "Yes" before Enter, never a blind Enter
+ok - fm-spawn: an authorized focused trust choice accepts without unnecessary navigation
+ok - fm-spawn: a trust dialog that never clears fails loudly instead of leaving a silent idle pane
+ok - fm-spawn: accepting the dialog is not proof of delivery - an unconfirmed resume still fails loudly
+ok - fm-spawn: a delayed Claude trust dialog remains inside the launch observation window
+ok - fm-spawn: stale busy scrollback cannot prove a replacement Claude launch started
+ok - fm-spawn: an already-trusted idle Claude launch keeps the common-path contract
+ok - fm-spawn: dialog-present to dialog-absent processing is sufficient transition proof
+ok - fm-spawn: stale dialog scrollback cannot trigger acceptance keys
+ok - fm-spawn: an unreadable settle window fails loudly instead of assuming trust
+ok - fm-spawn: a blank capture remains inconclusive until the delayed dialog appears
+ok - fm-spawn: final-poll detection retains a full dialog-clearance budget
+ok - fm-spawn: Orca leaves Claude alive and loudly requests manual trust clearance
