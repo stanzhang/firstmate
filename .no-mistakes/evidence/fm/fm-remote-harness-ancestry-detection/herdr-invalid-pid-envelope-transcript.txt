@@ -1,0 +1,3 @@
+COMMAND: fm-remote-harness-diagnostic.sh alienware-ml (Herdr shell_pid=701.9)
+error: Herdr process information envelope did not match pane w3:p2
+exit=1

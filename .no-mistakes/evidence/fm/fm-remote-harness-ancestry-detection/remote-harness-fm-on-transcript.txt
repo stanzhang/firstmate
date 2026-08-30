@@ -1,0 +1,11 @@
+COMMAND: FM_HOME=<primary-home> bin/fm-on.sh ios fm-remote-harness-diagnostic.sh ios
+schema=fm-remote-harness-diagnostic.v1 id=ios target=fm-remote:w3:p2 harness=codex session=fm-remote pane=w3:p2 shell_pid=701
+source=herdr-pane-process-info foreground_pids=702
+candidate_pid=701
+schema=fm-harness-ancestry-diagnostic.v1 start_pid=701 max_hops=16
+hop=1 pid=701 ppid=1 comm=bash argv0=bash args=bash\ -l match=reject:basename\,path-component\,interpreter-args\,cursor-structural
+result=no-verified-harness
+candidate_pid=702
+schema=fm-harness-ancestry-diagnostic.v1 start_pid=702 max_hops=16
+hop=1 pid=702 ppid=701 comm=node argv0=node args=node\ /opt/openai/codex/bin/agent.js match=accept:interpreter-args
+result=verified-harness-found

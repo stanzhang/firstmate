@@ -1,0 +1,15 @@
+COMMAND: bin/fm-harness.sh (unrecognized remote worker ancestry)
+diagnostic: no verified harness marker or ancestry match; inspected process evidence follows
+schema=fm-harness-ancestry-diagnostic.v1 start_pid=50151 max_hops=16
+hop=1 pid=50151 ppid=1 comm=herdr-worker argv0=herdr args=herdr\ worker\ --lane\ remote match=reject:basename\,path-component\,interpreter-args\,cursor-structural
+result=no-verified-harness
+unknown
+fm-harness_exit=0
+
+COMMAND: FM_HOME=<remote-home> bin/fm-lock.sh (same unrecognized ancestry)
+error: cannot locate harness process in ancestry; inspected process evidence follows
+schema=fm-harness-ancestry-diagnostic.v1 start_pid=50267 max_hops=16
+hop=1 pid=50267 ppid=1 comm=herdr-worker argv0=herdr args=herdr\ worker\ --lane\ remote match=reject:basename\,path-component\,interpreter-args\,cursor-structural
+result=no-verified-harness
+fm-lock_exit=1
+lock_file=absent (fail-closed; no lock write)
