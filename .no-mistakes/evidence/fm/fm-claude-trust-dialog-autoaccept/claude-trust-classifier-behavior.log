@@ -1,3 +1,7 @@
-cancel-focused dialog -> trust-unfocused (requires Down before Enter)
-trust-focused dialog -> trust-focused (safe to confirm with Enter)
-dialog only in stale scrollback above active footer -> absent (send no trust key)
+ok - fm_composer_claude_trust_dialog_state: the cancel-focused default reads trust-unfocused
+ok - fm_composer_claude_trust_dialog_state: focus on "Yes, I trust this folder" reads trust-focused
+ok - fm_composer_claude_trust_dialog_state: the latest dialog's Yes row owns focus
+ok - fm_composer_claude_trust_dialog_state: the alternate cancel label still detects the dialog
+ok - fm_composer_claude_trust_dialog_state: absent on an ordinary composer and on the label alone without the title
+ok - fm_composer_claude_trust_dialog_state: a stale dialog above the active footer is absent
+ok - fm_composer_claude_trust_dialog_state: detection survives ANSI styling
