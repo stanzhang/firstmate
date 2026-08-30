@@ -1,0 +1,5 @@
+Shared executable classifier results:
+cancel-focused live dialog         expected=trust-unfocused actual=trust-unfocused
+Yes-focused live dialog            expected=trust-focused   actual=trust-focused
+stale focused + current cancel     expected=trust-unfocused actual=trust-unfocused
+ordinary processing surface        expected=absent          actual=absent

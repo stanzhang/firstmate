@@ -1,0 +1,35 @@
+
+=== authorized fresh repository ===
+fm-spawn exit: 0
+operator output:
+warning: /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-claude-harness.L9lhUz/evidence-trust-success/home/data/evidence-trust-success-26402/brief.md records no delivery contract line (scaffolded before ship briefs recorded one); launching on the explicit --mode no-mistakes - confirm its definition of done matches
+spawned evidence-trust-success-26402 harness=claude kind=ship mode=no-mistakes yolo=off window=firstmate:fm-evidence-trust-success-26402 worktree=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-claude-harness.L9lhUz/evidence-trust-success/wt
+delivered key sequence (launch submit, trust navigation, trust accept):
+Enter
+Down
+Enter
+final worker surface state: processing
+durable task grant: claude_trust=accept
+
+=== dialog cannot be cleared ===
+fm-spawn exit: 1
+operator output:
+warning: /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-claude-harness.L9lhUz/evidence-trust-stuck/home/data/evidence-trust-stuck-26402/brief.md records no delivery contract line (scaffolded before ship briefs recorded one); launching on the explicit --mode no-mistakes - confirm its definition of done matches
+error: claude's workspace-trust dialog could not be cleared; inspect window firstmate:fm-evidence-trust-stuck-26402
+supervisor-visible status:
+failed: claude's workspace-trust dialog could not be cleared
+delivered key sequence:
+Enter
+Down
+final worker surface state: trust-no
+
+=== Orca cannot deliver Down ===
+fm-spawn exit: 0
+operator output:
+warning: /var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-claude-harness.L9lhUz/evidence-orca-gap/home/data/evidence-orca-gap-26402/brief.md records no delivery contract line (scaffolded before ship briefs recorded one); launching on the explicit --mode no-mistakes - confirm its definition of done matches
+blocked: backend=orca task=evidence-orca-gap-26402 requires a human keystroke to clear Claude's workspace-trust dialog; select "Yes, I trust this folder" with Down, then press Enter; worker left alive on term-1
+spawned evidence-orca-gap-26402 harness=claude kind=ship mode=no-mistakes yolo=off window=fm-evidence-orca-gap-26402 worktree=/var/folders/pw/vjmgm22d2f18y4drp3lstzfm0000gn/T//fm-claude-harness.L9lhUz/evidence-orca-gap/wt
+supervisor-visible status:
+blocked: backend=orca task=evidence-orca-gap-26402 requires a human keystroke to clear Claude's workspace-trust dialog; select "Yes, I trust this folder" with Down, then press Enter; worker left alive on term-1
+Down delivery attempts: 0
+final worker surface state: trust-no

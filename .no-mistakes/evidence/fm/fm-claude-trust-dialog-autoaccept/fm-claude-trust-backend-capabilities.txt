@@ -1,0 +1,5 @@
+tmux    Down=supported
+herdr   Down=supported
+zellij  Down=supported
+cmux    Down=supported
+orca    Down=unsupported (manual trust clearance required)
