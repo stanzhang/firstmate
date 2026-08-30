@@ -1,0 +1,32 @@
+Firstmate documentation-only validation evidence
+
+Committed range
+  base:   c7fdef92098e3b841921cb0c1a920c6cc43abc83
+  target: 2c97b3ba5c63774e6dd68fe3223671cd594e5d74
+
+Committed scope
+  :100644 100644 cfee378 f42ba06 M  docs/wedge-alarm.md
+  9  0  docs/wedge-alarm.md
+
+Maintained documentation classification
+  docs/wedge-alarm.md  operator-current
+
+Repository documentation consumer check
+  $ bin/fm-doc-audience-check.sh
+  fm-doc-audience-check: ok surfaces=89 local_links=296
+
+Markdown whitespace check
+  $ git diff --check c7fdef92098e3b841921cb0c1a920c6cc43abc83..2c97b3ba5c63774e6dd68fe3223671cd594e5d74
+  exit 0, no output
+
+Manual complete-diff review
+  The range changes only docs/wedge-alarm.md.
+  The new section uses one sentence per physical Markdown line and plain dashes.
+  It states that same-pane away-mode delivery requires an idle primary and an affirmatively empty composer.
+  It explains that a continuously busy or uncertain primary remains buffered to avoid corrupt or merged input.
+  It names continued interaction after entering away mode as an expected busy-primary case.
+  It explains that FM_MAX_DEFER_SECS bounds silent deferral, preserves the buffered escalation, and surfaces the wedge alarm.
+  It explicitly says the alarm does not authorize bypassing either guard and does not prove idle away-mode delivery failed.
+
+Scope exclusions honored
+  No Herdr, Claude, fm-herdr-lab, server/session/pane lifecycle, live harness/e2e, or Herdr-driving behavior test was run.
