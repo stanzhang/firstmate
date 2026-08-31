@@ -1,0 +1,22 @@
+ok - a known job completes through the process-event runner without blocking submission
+ok - question and source hashes bind the exact published snapshots
+ok - questions answers and credentials stay out of tracked files events and command output
+ok - consult machinery never directly reads, copies, or prints session credentials
+ok - delivery ambiguity forbids automatic retries and blocks a different consult until explicit reconciliation
+ok - an unresolved submission attempt blocks every consult until validated human reconciliation
+ok - a normal known job that remains running after bounded waiting records STALLED
+ok - a validated completed job retires even when the wait process exits nonzero
+ok - job wait status is trusted only for the exact submitted job id
+ok - arm suppresses waiting only for an exact consult and job capture
+ok - a request checkpoint before the attempt marker resumes without ambiguity
+ok - submission recovery rejects malformed and unmarked terminal state
+ok - auth and limit terminals validate their preflight or marked origin
+ok - receipt replay validates identity hashes terminal and advisory presence
+ok - raw job results remain outside the immutable record until validation
+ok - captured terminal recovery prevents a second known-job wait after a crash
+ok - a stale selected-model limit observation is never treated as unlimited
+ok - an explicit observed exhaustion fails closed without inferring absent limits
+ok - auth preflight fails closed before the submission boundary
+ok - Deep Research remains explicitly disabled pending saved-chat authorization
+ok - only the explicitly approved temporary-chat model may be prepared
+ok - unsupported reasoning fails before any consultation side effect
