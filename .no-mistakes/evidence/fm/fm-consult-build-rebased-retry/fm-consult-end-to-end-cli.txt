@@ -1,0 +1,45 @@
+Firstmate private consultation end-to-end CLI evidence
+Transport: isolated fake pro-cli; no network, live consultation, cookie, or billable action
+
+1. Prepare through the public CLI
+prepared: <consult-id>
+record_mode=700
+leaf=contract.md 600
+leaf=prepared.json 600
+leaf=question.md 600
+
+2. Submit once and arm a known-job waiter
+registered: consult-<consult-id> (consult)
+armed: <consult-id>
+submitted: <consult-id>
+foreground_submit_elapsed_ms=793
+job_create_calls=1
+wait_registration=present mode=600
+
+3. Start the generic background runner
+reconciled: published=0 started=1 stopped=0 terminal-recovered=0 uncertain=0
+background_wait_started=true; conversational_command_already_returned=true
+captured_envelope={"wait_timed_out":false,"schema":"fm-consult-wait/1","wait_exit":75,"contains_advisory":false,"job_status":"succeeded"}
+terminal_registration=retired_even_with_wait_exit_75
+
+4. Handle the exact captured job and publish a private receipt
+collected: <consult-id> ADVISORY_RECORDED
+handled: <source-id> 1
+receipt_terminal=ADVISORY_RECORDED
+receipt_mode=600 advisory_mode=600 answer_hash_matches=true
+private_question_or_advisory_bytes_printed=false
+
+5. Replay the same consult
+not-armed: <consult-id> (already captured or finished)
+already-terminal: <consult-id> SUBMITTED
+job_create_calls_after_replay=1
+
+6. Observed pro-cli argv (private contents omitted)
+--version
+doctor --json
+limits --json
+job create @question.md --json --retries 0 --temporary --model gpt-5-6-pro --reasoning standard
+job wait <job-id> --soft-timeout 1800000 --json
+job status <job-id> --json
+job result <job-id> --json
+forbidden_ask_or_create_wait_calls=0
