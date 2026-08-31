@@ -3,9 +3,13 @@ ok - fm-spawn: Claude trust authority cannot broaden to another harness
 ok - fm-spawn: a pre-focused Claude trust choice cannot bypass authority
 ok - fm-spawn: an already-trusted claude spawn skips all dialog handling
 ok - fm-spawn: claude's trust dialog is navigated to "Yes" before Enter, never a blind Enter
+ok - fm-spawn: post-navigation polling never sends another Down
 ok - fm-spawn: an authorized focused trust choice accepts without unnecessary navigation
+ok - fm-spawn: post-accept polling never sends another key
 ok - fm-spawn: a trust dialog that never clears fails loudly instead of leaving a silent idle pane
 ok - fm-spawn: accepting the dialog is not proof of delivery - an unconfirmed resume still fails loudly
+ok - fm-spawn: dialog disappearance before acceptance remains unconfirmed
+ok - fm-spawn: a busy footer cannot replace an acceptance attempt
 ok - fm-spawn: a delayed Claude trust dialog remains inside the launch observation window
 ok - fm-spawn: stale busy scrollback cannot prove a replacement Claude launch started
 ok - fm-spawn: an already-trusted idle Claude launch keeps the common-path contract

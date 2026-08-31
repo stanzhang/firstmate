@@ -1,0 +1,5 @@
+cancel-focused => trust-unfocused (expected trust-unfocused)
+yes-focused => trust-focused (expected trust-focused)
+latest-dialog-wins => trust-unfocused (expected trust-unfocused)
+ordinary-composer => absent (expected absent)
+stale-dialog-scrollback => absent (expected absent)
